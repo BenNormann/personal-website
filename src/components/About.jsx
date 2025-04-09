@@ -22,7 +22,7 @@ const About = () => {
     {
       id: "second-p-about",
       content:
-        "Right now, I'm completing an International BA in Economics with a Minor in Computer Science through the University of St. Andrews and William & Mary Joint Degree Programme. In Fall 2025, I'll be starting my Master's in Computer Science at the University of Southern California."
+        "In Fall 2025, I'll be starting my Master's in Computer Science at the University of Southern California. Right now, I'm completing an International BA in Economics with a Minor in Computer Science through the University of St. Andrews and William & Mary Joint Degree Programme."
     },
     {
       id: "third-p-about",

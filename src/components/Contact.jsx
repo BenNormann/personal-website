@@ -102,9 +102,7 @@ const Contact = () => {
                     </div>
                     <div className="more-info">
                       <p className="lead">
-                        I'd love to hear from you about potential opportunities, collaborations, or just to connect!
-                        <br />
-                        Feel free to reach out via email or connect with me on LinkedIn.
+                        I'd love to hear from you about potential opportunities, collaborations, or just to connect! Feel free to reach out via email or connect with me on LinkedIn.
                       </p>
                       <ul className="list-ico">
                         <li><span className="ion-ios-telephone"></span> (206) 472-2782</li>

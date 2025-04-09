@@ -102,8 +102,16 @@ const Contact = () => {
                         I'd love to hear from you about potential opportunities, collaborations, or just to connect! Feel free to reach out via email or connect with me on LinkedIn.
                       </p>
                       <ul className="list-ico">
-                        <li><span className="ion-ios-telephone"></span> (206) 472-2782</li>
-                        <li><span className="ion-email"></span> benjaminellisnormann@gmail.com</li>
+                        <li>
+                          <a href="tel:+12064722782" style={{ color: 'inherit', textDecoration: 'none' }}>
+                            <span className="ion-ios-telephone"></span> (206) 472-2782
+                          </a>
+                        </li>
+                        <li>
+                          <a href="mailto:benjaminellisnormann@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>
+                            <span className="ion-email"></span> benjaminellisnormann@gmail.com
+                          </a>
+                        </li>
                       </ul>
                     </div>
                     <div className="socials">

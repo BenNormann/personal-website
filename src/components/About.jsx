@@ -16,17 +16,17 @@ const About = () => {
     {
       id: "first-p-about",
       content:
-        "With a passion for software development and programming, I am excited to apply for software engineering internship opportunities. With strong skills in web application development in JavaScript, I am eager to bring my technical abilities, curiosity, growth mindset, and work ethic to a collaborative and innovative team."
+        "I'm a software developer with a passion for building clean, efficient web applications and solving real-world problems through code. I specialize in JavaScript and React, and I enjoy working on projects that challenge me to think creatively and collaborate closely with others. I’m particularly drawn to roles where curiosity, technical growth, and a strong work ethic are valued."
     },
     {
       id: "second-p-about",
       content:
-        "Currently, I'm pursuing an International BA in Economics with a Minor in Computer Science at the University of St. Andrews and William & Mary Joint Degree Program. I've also been accepted to the Master of Science in Computer Science program at the University of Southern California, which I'll begin in Fall 2025."
+        "Right now, I'm completing an International BA in Economics with a Minor in Computer Science through the University of St. Andrews and William & Mary Joint Degree Programme. In Fall 2025, I’ll be starting my Master’s in Computer Science at the University of Southern California."
     },
     {
       id: "third-p-about",
       content:
-        "Beyond academics, I'm an Eagle Scout with a passion for travel, vintage auto restorations, music composition, and outdoor activities like tennis, hiking, skiing, and boating. I bring leadership, teamwork, adaptability, and problem-solving skills to every project I undertake."
+        "Outside of tech, I’m an Eagle Scout and a lifelong explorer - whether it’s through travel, restoring vintage cars, composing music, or getting outside for tennis, skiing, hiking, or boating. I bring leadership, adaptability, and a hands-on, solution-oriented mindset to everything I do."
     }
   ]);
 

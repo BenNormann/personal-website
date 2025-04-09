@@ -41,11 +41,6 @@ const Portfolio = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="col-sm-4">
-                      <div className="w-like">
-                        <span className="ion-ios-plus-outline"></span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </a>
@@ -68,11 +63,6 @@ const Portfolio = () => {
                         <p className="mt-2">
                           I developed a predictor that utilizes a fine-tuned CodeT5 model to predict missing conditions in Python if statements. The implementation leverages Python 3.9+, PyTorch, Transformers, and scikit-learn for data processing, model training, and evaluation.
                         </p>
-                      </div>
-                    </div>
-                    <div className="col-sm-4">
-                      <div className="w-like">
-                        <span className="ion-ios-plus-outline"></span>
                       </div>
                     </div>
                   </div>
@@ -99,11 +89,6 @@ const Portfolio = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="col-sm-4">
-                      <div className="w-like">
-                        <span className="ion-ios-plus-outline"></span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </a>
@@ -126,11 +111,6 @@ const Portfolio = () => {
                         <p className="mt-2">
                           A web application that allows users to create personalized digital Valentine's Day cards. Built with Next.js and styled using Tailwind CSS, it features customizable recipient names, messages, and images with a secure login system.
                         </p>
-                      </div>
-                    </div>
-                    <div className="col-sm-4">
-                      <div className="w-like">
-                        <span className="ion-ios-plus-outline"></span>
                       </div>
                     </div>
                   </div>

@@ -21,16 +21,16 @@ const Portfolio = () => {
             </div>
           </div>
         </div>
-        <div className="row">
-          <div className="col-md-4">
-            <div className="work-box">
-              <a href="https://www.musicnerd.xyz/" target="_blank" rel="noopener noreferrer">
+        <div className="row" style={{ display: "flex", flexWrap: "wrap" }}>
+          <div className="col-md-4 d-flex">
+            <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
+              <a href="https://www.musicnerd.xyz/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
                 <div className="work-img">
-                  <img src={musicNerd} alt="MusicNerd App" className="img-fluid" />
+                  <img src={musicNerd} alt="MusicNerd App" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
                 </div>
-                <div className="work-content">
+                <div className="work-content" style={{ flex: "1 0 auto" }}>
                   <div className="row">
-                    <div className="col-sm-8">
+                    <div className="col-sm-12">
                       <h2 className="w-title">MusicNerd (xDJs)</h2>
                       <div className="w-more">
                         <span className="w-ctegory">
@@ -46,15 +46,15 @@ const Portfolio = () => {
               </a>
             </div>
           </div>
-          <div className="col-md-4">
-            <div className="work-box">
-              <a href="https://github.com/BenNormann/if-predictor-CodeT5" target="_blank" rel="noopener noreferrer">
+          <div className="col-md-4 d-flex">
+            <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
+              <a href="https://github.com/BenNormann/if-predictor-CodeT5" target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
                 <div className="work-img">
-                  <img src={ifPredictor} alt="If-Statement Condition Predictor" className="img-fluid" />
+                  <img src={ifPredictor} alt="If-Statement Condition Predictor" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
                 </div>
-                <div className="work-content">
+                <div className="work-content" style={{ flex: "1 0 auto" }}>
                   <div className="row">
-                    <div className="col-sm-8">
+                    <div className="col-sm-12">
                       <h2 className="w-title">If-Statement Condition Predictor</h2>
                       <div className="w-more">
                         <span className="w-ctegory">
@@ -70,15 +70,15 @@ const Portfolio = () => {
               </a>
             </div>
           </div>
-          <div className="col-md-4">
-            <div className="work-box">
-              <a href="https://github.com/BenNormann/commercial-realestate-crawler-v3" target="_blank" rel="noopener noreferrer">
+          <div className="col-md-4 d-flex">
+            <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
+              <a href="https://github.com/BenNormann/commercial-realestate-crawler-v3" target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
                 <div className="work-img">
-                  <img src={commRECrawler} alt="Commercial Real Estate Crawler" className="img-fluid" />
+                  <img src={commRECrawler} alt="Commercial Real Estate Crawler" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
                 </div>
-                <div className="work-content">
+                <div className="work-content" style={{ flex: "1 0 auto" }}>
                   <div className="row">
-                    <div className="col-sm-8">
+                    <div className="col-sm-12">
                       <h2 className="w-title">Commercial Real Estate Crawler</h2>
                       <div className="w-more">
                         <span className="w-ctegory">
@@ -94,15 +94,15 @@ const Portfolio = () => {
               </a>
             </div>
           </div>
-          <div className="col-md-4">
-            <div className="work-box">
-              <a href="https://github.com/BenNormann/valentines-website-template" target="_blank" rel="noopener noreferrer">
+          <div className="col-md-4 d-flex">
+            <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
+              <a href="https://github.com/BenNormann/valentines-website-template" target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
                 <div className="work-img">
-                  <img src={valentine} alt="Valentine's Day Card Web App" className="img-fluid" />
+                  <img src={valentine} alt="Valentine's Day Card Web App" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
                 </div>
-                <div className="work-content">
+                <div className="work-content" style={{ flex: "1 0 auto" }}>
                   <div className="row">
-                    <div className="col-sm-8">
+                    <div className="col-sm-12">
                       <h2 className="w-title">Valentine's Day Card App</h2>
                       <div className="w-more">
                         <span className="w-ctegory">

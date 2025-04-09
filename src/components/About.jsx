@@ -53,13 +53,11 @@ const About = () => {
                           style={{ width: "100%", height: "auto", objectFit: "cover" }}
                         />
                       </div>
-                      <div className="testimonial mt-4 p-3" style={{ backgroundColor: "#f8f9fa", borderRadius: "5px" }}>
-                        <p className="font-italic">
+                      <div className="about-me testimonial mt-4 p-3" style={{ backgroundColor: "#f8f9fa", borderRadius: "5px" }}>
+                        <p>
                           "Ben's technical aptitude is complemented by a methodical approach to problem-solving and a strong intellectual curiosity. He is never afraid to ask thoughtful questions, and his ability to quickly grasp new concepts and technologies made him an invaluable contributor during his internship."
                         </p>
-                        <p className="font-weight-bold mb-0">Carl Tydingco</p>
-                        <p className="small">Co-Founder/CTO</p>
-                        <p className="small">xDJs LLC</p>
+                        <p >- Carl Tydingco (Co-Founder/CTO xDJs)</p>
                       </div>
                     </div>
                   </div>

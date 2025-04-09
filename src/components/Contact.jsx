@@ -149,7 +149,7 @@ const Contact = () => {
           <div className="row">
             <div className="col-sm-12">
               <div className="copyright-box">
-                <p className="copyright">&copy; Copyright <strong>Benjamin Normann</strong>. All Rights Reserved</p>
+                <p className="copyright">&copy; 2025 <strong>Ben Normann</strong></p>
               </div>
             </div>
           </div>

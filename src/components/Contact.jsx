@@ -97,7 +97,7 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="col-md-6">
-                    <div className="more-info">
+                    <div className="more-info pt-4 pt-md-0">
                       <p className="lead">
                         I'd love to hear from you about potential opportunities, collaborations, or just to connect! Feel free to reach out via email or connect with me on LinkedIn.
                       </p>

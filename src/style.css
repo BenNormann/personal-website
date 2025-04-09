@@ -208,9 +208,9 @@ a:hover {
 }
 
 .socials .ico-circle {
-  height: 40px;
-  width: 40px;
-  font-size: 1.2rem;
+  height: 50px;
+  width: 50px;
+  font-size: 1.8rem;
   border-radius: 50%;
   line-height: 1.6;
   margin: 0 15px 0 0;
@@ -218,11 +218,21 @@ a:hover {
   transition: all 500ms ease;
 }
 
+.socials .ico-circle i {
+  font-size: 2.2rem;
+  line-height: 50px;
+  transition: all 0.4s ease;
+}
+
 .socials .ico-circle:hover {
   background-color: rgb(57, 29, 94);
   color: #fff;
   box-shadow: 0 0 0 3px #cde1f8;
-  transition: all 500ms ease;
+  transform: scale(1.1);
+}
+
+.socials .ico-circle:hover i {
+  color: #fff;
 }
 
 /* Lists */

@@ -38,7 +38,7 @@ const About = () => {
             <div className="box-shadow-full">
               <div className="row">
                 <div className="col-md-6">
-                  <div className="row">
+                  {/* <div className="row">
                     <div
                       className="col-sm-6 col-md-5"
                       style={{ margin: "0 auto" }}
@@ -53,8 +53,11 @@ const About = () => {
                         />
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="skill-mf">
+                    <div className="title-box-2">
+                      <h5 className="title-left">Skills</h5>
+                    </div>
                     {/* <p className="title-s">Skill</p> */}
                     {skills.map(skill => (
                       <React.Fragment key={skill.id}>

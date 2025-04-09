@@ -13,7 +13,7 @@ const Intro = () => {
       <div className="intro-content display-table">
         <div className="table-cell">
           <div className="container">
-            <h1 className="intro-title mb-4">Hello, I am Benjamin Normann</h1>
+            <h1 className="intro-title mb-4">Ben Normann</h1>
             <p className="intro-subtitle">
               <span className="text-slider-items"></span>
               <strong className="text-slider">
@@ -21,7 +21,8 @@ const Intro = () => {
                   strings={[
                     "Software Engineer",
                     "Web Developer",
-                    "Computer Science Student"
+                    "Computer Science Student",
+                    "Economics Student"
                   ]}
                   typeSpeed={80}
                   backDelay={1100}
@@ -36,7 +37,7 @@ const Intro = () => {
                 href="#work"
                 role="button"
               >
-                View My Work
+                My Portfolio
               </a>
             </p>
           </div>

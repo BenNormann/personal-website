@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import benImage from '../assets/ben-temp.jpg';
 
 const About = () => {
   const [skills] = useState([
@@ -16,17 +17,17 @@ const About = () => {
     {
       id: "first-p-about",
       content:
-        "I'm a software developer with a passion for building clean, efficient web applications and solving real-world problems through code. I specialize in JavaScript and React, and I enjoy working on projects that challenge me to think creatively and collaborate closely with others. I’m particularly drawn to roles where curiosity, technical growth, and a strong work ethic are valued."
+        "I'm a software developer with a passion for building clean, efficient web applications and solving real-world problems through code. I specialize in JavaScript and React, and I enjoy working on projects that challenge me to think creatively and collaborate closely with others. I'm particularly drawn to roles where curiosity, technical growth, and a strong work ethic are valued."
     },
     {
       id: "second-p-about",
       content:
-        "Right now, I'm completing an International BA in Economics with a Minor in Computer Science through the University of St. Andrews and William & Mary Joint Degree Programme. In Fall 2025, I’ll be starting my Master’s in Computer Science at the University of Southern California."
+        "Right now, I'm completing an International BA in Economics with a Minor in Computer Science through the University of St. Andrews and William & Mary Joint Degree Programme. In Fall 2025, I'll be starting my Master's in Computer Science at the University of Southern California."
     },
     {
       id: "third-p-about",
       content:
-        "Outside of tech, I’m an Eagle Scout and a lifelong explorer - whether it’s through travel, restoring vintage cars, composing music, or getting outside for tennis, skiing, hiking, or boating. I bring leadership, adaptability, and a hands-on, solution-oriented mindset to everything I do."
+        "Outside of tech, I'm an Eagle Scout and a lifelong explorer - whether it's through travel, restoring vintage cars, composing music, or getting outside for tennis, skiing, hiking, or boating. I bring leadership, adaptability, and a hands-on, solution-oriented mindset to everything I do."
     }
   ]);
 
@@ -36,54 +37,35 @@ const About = () => {
         <div className="row">
           <div className="col-sm-12">
             <div className="box-shadow-full">
+              <div className="title-box-2">
+                <h5 className="title-left">About Me</h5>
+              </div>
               <div className="row">
-                <div className="col-md-6">
-                  {/* <div className="row">
-                    <div
-                      className="col-sm-6 col-md-5"
-                      style={{ margin: "0 auto" }}
-                    >
-                      <div
-                        className="about-img"
-                        style={{ textAlign: "center" }}
-                      >
+              
+              <div className="col-md-6">
+                  <div className="row h-100">
+                    <div>
+                      <div className="pt-4 pt-md-0">
                         <img
-                          className="img-fluid rounded b-shadow-a"
-                          alt=""
+                          className="img-fluid b-shadow-a"
+                          alt="ben"
+                          src={benImage}
+                          style={{ width: "100%", height: "auto", objectFit: "cover" }}
                         />
                       </div>
+                      <div className="testimonial mt-4 p-3" style={{ backgroundColor: "#f8f9fa", borderRadius: "5px" }}>
+                        <p className="font-italic">
+                          "Ben's technical aptitude is complemented by a methodical approach to problem-solving and a strong intellectual curiosity. He is never afraid to ask thoughtful questions, and his ability to quickly grasp new concepts and technologies made him an invaluable contributor during his internship."
+                        </p>
+                        <p className="font-weight-bold mb-0">Carl Tydingco</p>
+                        <p className="small">Co-Founder/CTO</p>
+                        <p className="small">xDJs LLC</p>
+                      </div>
                     </div>
-                  </div> */}
-                  <div className="skill-mf">
-                    <div className="title-box-2">
-                      <h5 className="title-left">Skills</h5>
-                    </div>
-                    {/* <p className="title-s">Skill</p> */}
-                    {skills.map(skill => (
-                      <React.Fragment key={skill.id}>
-                        <span>{skill.content}</span>{" "}
-                        <span className="pull-right">
-                          {skill.porcentage}
-                        </span>
-                        <div className="progress">
-                          <div
-                            className="progress-bar"
-                            role="progressbar"
-                            style={{ width: skill.porcentage }}
-                            aria-valuenow={skill.value}
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                      </React.Fragment>
-                    ))}
                   </div>
                 </div>
                 <div className="col-md-6">
                   <div className="about-me pt-4 pt-md-0">
-                    <div className="title-box-2">
-                      <h5 className="title-left">About Me</h5>
-                    </div>
                     {aboutMe.map(content => (
                       <p className="lead" key={content.id}>
                         {content.content}

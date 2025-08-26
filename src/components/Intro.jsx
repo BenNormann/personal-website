@@ -30,14 +30,13 @@ const Intro = () => {
                   loop
                 /> */}
                 <a style={{fontSize: "1.8rem"}}>
+                  MSCS Student
+                  <br/>
                   Software Engineer
                   <br/>
                   Web Developer
                   <br/>
-                  Computer Science Student 
-                  <br/>
                   Economics Graduate
-                  <br/>
                 </a>
               </strong>
             </p>

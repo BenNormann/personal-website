@@ -5,6 +5,8 @@ import musicNerd from "../assets/musicNerdLogo.png";
 import ifPredictor from "../assets/ifPredictor.png";
 import commRECrawler from "../assets/CommRECrawler.png";
 import valentine from "../assets/Valentine.png";
+import luxxle from "../assets/LuxxleLogoHD.png";
+import killtone from "../assets/KilltoneLogo.png";
 
 const Portfolio = () => {
   return (
@@ -22,6 +24,58 @@ const Portfolio = () => {
           </div>
         </div>
         <div className="row" style={{ display: "flex", flexWrap: "wrap" }}>
+        <div className="col-md-4 d-flex">
+            <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
+              <a href="https://www.luxxle.com/about/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+                <div className="work-img">
+                  <img src={luxxle} alt="Luxxle Web Explorer/Browser" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
+                </div>
+                <div className="work-content" style={{ flex: "1 0 auto" }}>
+                  <div className="row">
+                    <div className="col-sm-12">
+                      <h2 className="w-title">Luxxle Search Engine/Browser</h2>
+                      <div className="w-more">
+                        <span className="w-ctegory">
+                          C++, HTML, CSS
+                        </span>
+                        <p className="mt-2">
+                          As a Founding Team Engineer at Luxxle, I contributed towards the first steps of building their browser. I forked 
+                          chromium, adopting similar patching/extension architecture to Brave and have created the alpha version of the browser. 
+                          More information can be found on the <a href="https://www.luxxle.com/about/" target="_blank" rel="noopener noreferrer">
+                          Luxxle website</a>: https://vimeo.com/833430038
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="col-md-4 d-flex">
+            <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
+              <a href="https://github.com/BenNormann/Killtone" target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+                <div className="work-img">
+                  <img src={killtone} alt="KT Logo" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
+                </div>
+                <div className="work-content" style={{ flex: "1 0 auto" }}>
+                  <div className="row">
+                    <div className="col-sm-12">
+                      <h2 className="w-title">Killtone Game</h2>
+                      <div className="w-more">
+                        <span className="w-ctegory">
+                          JavaScript, Babylon JS
+                        </span>
+                        <p className="mt-2">
+                          Killtone is a 3D multiplayer game built with Babylon JS. It is a simple game where players can move around and shoot at each other over
+                           a LAN connection. I and another friend are developing this game as a side project.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
           <div className="col-md-4 d-flex">
             <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
               <a href="https://www.musicnerd.xyz/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", height: "100%" }}>

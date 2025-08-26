@@ -17,12 +17,12 @@ const About = () => {
     {
       id: "first-p-about",
       content:
-        "I'm a software developer with a passion for building clean, efficient web applications and solving real-world problems through code. I specialize in JavaScript and React, and I enjoy working on projects that challenge me to think creatively and collaborate closely with others. I'm particularly drawn to roles where curiosity, technical growth, and a strong work ethic are valued."
+        "I'm a software developer with a passion for building clean, efficient web applications and solving real-world problems through code. I specialize in JavaScript, React, Python, and C++. I enjoy working on projects that challenge me to think creatively and collaborate closely with others. I'm particularly drawn to roles where curiosity, technical growth, and a strong work ethic are valued."
     },
     {
       id: "second-p-about",
       content:
-        "In Fall 2025, I'll be starting my Master's in Computer Science at the University of Southern California. Right now, I'm completing an International BA in Economics with a Minor in Computer Science through the University of St. Andrews and William & Mary Joint Degree Programme."
+        "I'll have just started my Master's in Computer Science at the University of Southern California after completing an International BA in Economics with a Minor in Computer Science through the University of St. Andrews and William & Mary Joint Degree Programme."
     },
     {
       id: "third-p-about",

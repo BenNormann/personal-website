@@ -17,7 +17,7 @@ const Intro = () => {
             <p className="intro-subtitle">
               <span className="text-slider-items"></span>
               <strong className="text-slider">
-                <ReactTyped
+                {/* <ReactTyped
                   strings={[
                     "Software Engineer",
                     "Web Developer",
@@ -28,7 +28,17 @@ const Intro = () => {
                   backDelay={1100}
                   backSpeed={30}
                   loop
-                />
+                /> */}
+                <a style={{fontSize: "1.8rem"}}>
+                  Software Engineer
+                  <br/>
+                  Web Developer
+                  <br/>
+                  Computer Science Student 
+                  <br/>
+                  Economics Graduate
+                  <br/>
+                </a>
               </strong>
             </p>
             <p className="pt-3">
@@ -36,6 +46,7 @@ const Intro = () => {
                 className="btn btn-primary btn js-scroll px-4"
                 href="#work"
                 role="button"
+                style={{marginTop: "20px"}}
               >
                 My Portfolio
               </a>

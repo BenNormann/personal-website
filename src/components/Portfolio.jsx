@@ -1,7 +1,7 @@
 import React from "react";
 
 //import images
-import musicNerd from "../assets/musicNerdLogo.png";
+import musicNerd from "../assets/musicNerdLogo.ico";
 import ifPredictor from "../assets/ifPredictor.png";
 import commRECrawler from "../assets/CommRECrawler.png";
 import valentine from "../assets/Valentine.png";

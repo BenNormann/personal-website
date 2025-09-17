@@ -24,6 +24,32 @@ const ProjectExposition = () => {
   const navigate = useNavigate();
   const projectId = location.pathname.substring(1); // Remove the leading slash
   const [videoError, setVideoError] = useState(false);
+  const [modalImage, setModalImage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (imageSrc) => {
+    setModalImage(imageSrc);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalImage(null);
+  };
+
+  // Handle ESC key to close modal
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape' && isModalOpen) {
+        closeModal();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isModalOpen]);
 
   const projectData = {
     "luxxle": {
@@ -380,7 +406,9 @@ const ProjectExposition = () => {
                             <img
                               src={image}
                               alt={`${project.title} screenshot ${index + 1}`}
-                              className="img-fluid"
+                              className="img-fluid clickable-image"
+                              onClick={() => openModal(image)}
+                              style={{ cursor: 'pointer' }}
                             />
                           </div>
                         ))}
@@ -423,6 +451,73 @@ const ProjectExposition = () => {
           </div>
         </div>
       </div>
+
+      {/* Image Modal */}
+      {isModalOpen && modalImage && (
+        <div
+          className="image-modal-overlay"
+          onClick={closeModal}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 9999,
+            cursor: 'pointer'
+          }}
+        >
+          <div
+            className="image-modal-content"
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              position: 'relative',
+              maxWidth: '90vw',
+              maxHeight: '85vh',
+              cursor: 'default'
+            }}
+          >
+            <button
+              onClick={closeModal}
+              className="modal-close-btn"
+              style={{
+                position: 'absolute',
+                top: '10px',
+                right: '10px',
+                background: 'rgba(0, 0, 0, 0.7)',
+                border: 'none',
+                color: 'white',
+                fontSize: '24px',
+                cursor: 'pointer',
+                padding: '8px 12px',
+                borderRadius: '50%',
+                zIndex: 10000,
+                width: '40px',
+                height: '40px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              ×
+            </button>
+            <img
+              src={modalImage}
+              alt="Enlarged view"
+              style={{
+                maxWidth: '100%',
+                maxHeight: '100%',
+                objectFit: 'contain',
+                borderRadius: '5px'
+              }}
+            />
+          </div>
+        </div>
+      )}
       </div>
     </section>
   );

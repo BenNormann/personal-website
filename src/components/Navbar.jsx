@@ -5,11 +5,26 @@ import * as bootstrap from 'bootstrap';
 const Navbar = () => {
   const navbarRef = useRef(null);
   const navbarCollapseRef = useRef(null);
+  const navbarTogglerRef = useRef(null);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     let scrollSpy = null;
+    let collapseInstance = null;
+
+    // Handle navbar collapse events to apply styling
+    const handleCollapseShow = () => {
+      if (!document.querySelector("#mainNav")?.classList.contains("navbar-reduce")) {
+        document.querySelector("#mainNav")?.classList.add("navbar-reduce");
+      }
+      setIsCollapsed(false);
+    };
+
+    const handleCollapseHide = () => {
+      setIsCollapsed(true);
+    };
 
     // Only initialize scrollspy on home page
     if (isHomePage) {
@@ -40,12 +55,28 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Initialize collapse button
+    // Initialize collapse manually without data attributes
     if (navbarCollapseRef.current) {
-      new bootstrap.Collapse(navbarCollapseRef.current, {
-        toggle: false
+      collapseInstance = new bootstrap.Collapse(navbarCollapseRef.current, {
+        toggle: false,
+        hide: true
       });
+
+      // Add event listeners for collapse events
+      navbarCollapseRef.current.addEventListener('show.bs.collapse', handleCollapseShow);
+      navbarCollapseRef.current.addEventListener('hide.bs.collapse', handleCollapseHide);
     }
+
+    // Handle toggler button click
+    const handleTogglerClick = () => {
+      if (collapseInstance) {
+        if (isCollapsed) {
+          collapseInstance.show();
+        } else {
+          collapseInstance.hide();
+        }
+      }
+    };
 
     // Handle smooth scrolling only on home page
     const handleNavLinkClick = (e) => {
@@ -66,11 +97,8 @@ const Navbar = () => {
           });
 
           // Hide navbar on mobile
-          if (navbarCollapseRef.current) {
-            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapseRef.current);
-            if (bsCollapse) {
-              bsCollapse.hide();
-            }
+          if (collapseInstance && !isCollapsed) {
+            collapseInstance.hide();
           }
         }
       }
@@ -82,6 +110,11 @@ const Navbar = () => {
       });
     }
 
+    // Add toggler click listener
+    if (navbarTogglerRef.current) {
+      navbarTogglerRef.current.addEventListener('click', handleTogglerClick);
+    }
+
     // Cleanup event listeners
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -91,15 +124,24 @@ const Navbar = () => {
       document.querySelectorAll('.js-scroll').forEach(link => {
         link.removeEventListener('click', handleNavLinkClick);
       });
-    };
-  }, [isHomePage]);
 
-  // Handle navbar toggler click
-  const handleTogglerClick = () => {
-    if (!document.querySelector("#mainNav")?.classList.contains("navbar-reduce")) {
-      document.querySelector("#mainNav")?.classList.add("navbar-reduce");
-    }
-  };
+      // Remove collapse event listeners
+      if (navbarCollapseRef.current) {
+        navbarCollapseRef.current.removeEventListener('show.bs.collapse', handleCollapseShow);
+        navbarCollapseRef.current.removeEventListener('hide.bs.collapse', handleCollapseHide);
+      }
+
+      // Remove toggler click listener
+      if (navbarTogglerRef.current) {
+        navbarTogglerRef.current.removeEventListener('click', handleTogglerClick);
+      }
+
+      // Dispose collapse instance
+      if (collapseInstance) {
+        collapseInstance.dispose();
+      }
+    };
+  }, [isHomePage, isCollapsed]);
 
   return (
     <nav
@@ -109,21 +151,19 @@ const Navbar = () => {
     >
       <div className="container">
         <button
-          className="navbar-toggler collapsed"
+          className={`navbar-toggler ${isCollapsed ? 'collapsed' : ''}`}
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarDefault"
           aria-controls="navbarDefault"
-          aria-expanded="false"
+          aria-expanded={!isCollapsed}
           aria-label="Toggle navigation"
-          onClick={handleTogglerClick}
+          ref={navbarTogglerRef}
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
         <div
-          className="navbar-collapse collapse justify-content-end"
+          className={`navbar-collapse collapse justify-content-end ${!isCollapsed ? 'show' : ''}`}
           id="navbarDefault"
           ref={navbarCollapseRef}
         >

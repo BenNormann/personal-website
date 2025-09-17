@@ -187,11 +187,14 @@ const ProjectExposition = () => {
 
   return (
     <section className="project-exposition sect-pt4 route background">
-      <div id="stars" />
-      <div id="stars2" />
-      <div id="stars3" />
+      <div className="stars-layer" style={{ zIndex: 1, position: 'relative' }}>
+        <div id="stars" />
+        <div id="stars2" />
+        <div id="stars3" />
+      </div>
 
-      <div className="container">
+      <div className="content-layer" style={{ zIndex: 2, position: 'relative' }}>
+        <div className="container">
         <div className="row">
           <div className="col-sm-12">
             <div className="title-box text-center">
@@ -241,7 +244,6 @@ const ProjectExposition = () => {
                   src={project.logo}
                   alt={`${project.title} Logo`}
                   className="img-fluid"
-                  style={{ maxHeight: "280px", objectFit: "contain", borderRadius: "12px", boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)" }}
                 />
                 {project.github && (
                   <div className="mt-3">
@@ -420,6 +422,7 @@ const ProjectExposition = () => {
             </button>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

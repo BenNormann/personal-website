@@ -1016,6 +1016,26 @@ footer .copyright {
 .project-logo img {
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  max-height: 280px;
+  width: auto;
+  height: auto;
+}
+
+.project-logo {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Small screens - half size and more padding */
+@media (max-width: 576px) {
+  .project-logo img {
+    max-height: 140px !important;
+  }
+
+  .project-logo {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 }
 
 .project-description h4,
@@ -1143,4 +1163,4 @@ footer .copyright {
   .image-gallery {
     grid-template-columns: 1fr;
   }
-} 
+}

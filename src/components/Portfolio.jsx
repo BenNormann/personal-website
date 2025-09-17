@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 //import images
 import musicNerd from "../assets/musicNerdLogo.ico";
@@ -24,9 +25,9 @@ const Portfolio = () => {
           </div>
         </div>
         <div className="row" style={{ display: "flex", flexWrap: "wrap" }}>
-        <div className="col-md-4 d-flex">
+          <div className="col-md-4 d-flex">
             <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
-              <a href="https://www.luxxle.com/about/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+              <Link to="/luxxle" className="work-box-link">
                 <div className="work-img">
                   <img src={luxxle} alt="Luxxle Web Explorer/Browser" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
                 </div>
@@ -39,21 +40,20 @@ const Portfolio = () => {
                           C++, HTML, CSS
                         </span>
                         <p className="mt-2">
-                          As a Founding Team Engineer at Luxxle, I contributed towards the first steps of building their browser. I forked 
-                          chromium, adopting similar patching/extension architecture to Brave and have created the alpha version of the browser. 
-                          More information can be found on the <a href="https://www.luxxle.com/about/" target="_blank" rel="noopener noreferrer">
-                          Luxxle website</a>: https://vimeo.com/833430038
+                          As a Founding Team Engineer at Luxxle, I contributed towards the first steps of building their browser. I forked
+                          chromium, adopting similar patching/extension architecture to Brave and have created the alpha version of the browser.
+                          This privacy-focused browser provides enhanced security and user control.
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="col-md-4 d-flex">
             <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
-              <a href="https://github.com/BenNormann/Killtone" target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+              <Link to="/killtone" className="work-box-link">
                 <div className="work-img">
                   <img src={killtone} alt="KT Logo" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
                 </div>
@@ -73,7 +73,7 @@ const Portfolio = () => {
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="col-md-4 d-flex">
@@ -102,7 +102,7 @@ const Portfolio = () => {
           </div>
           <div className="col-md-4 d-flex">
             <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
-              <a href="https://github.com/BenNormann/if-predictor-CodeT5" target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+              <Link to="/if-predictor" className="work-box-link">
                 <div className="work-img">
                   <img src={ifPredictor} alt="If-Statement Condition Predictor" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
                 </div>
@@ -121,12 +121,12 @@ const Portfolio = () => {
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="col-md-4 d-flex">
             <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
-              <a href="https://github.com/BenNormann/commercial-realestate-crawler-v3" target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+              <Link to="/commercial-realestate-crawler" className="work-box-link">
                 <div className="work-img">
                   <img src={commRECrawler} alt="Commercial Real Estate Crawler" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
                 </div>
@@ -145,12 +145,12 @@ const Portfolio = () => {
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="col-md-4 d-flex">
             <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
-              <a href="https://github.com/BenNormann/valentines-website-template" target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+              <Link to="/valentines-day-card" className="work-box-link">
                 <div className="work-img">
                   <img src={valentine} alt="Valentine's Day Card Web App" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
                 </div>
@@ -169,7 +169,7 @@ const Portfolio = () => {
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,16 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import * as bootstrap from 'bootstrap';
 
 const Navbar = () => {
   const navbarRef = useRef(null);
   const navbarCollapseRef = useRef(null);
-  
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   useEffect(() => {
-    // Initialize scrollspy
-    const scrollSpy = new bootstrap.ScrollSpy(document.body, {
-      target: '#mainNav',
-      offset: navbarRef.current?.clientHeight || 72
-    });
+    let scrollSpy = null;
+
+    // Only initialize scrollspy on home page
+    if (isHomePage) {
+      scrollSpy = new bootstrap.ScrollSpy(document.body, {
+        target: '#mainNav',
+        offset: navbarRef.current?.clientHeight || 72
+      });
+    }
 
     // Handle scroll for navbar styling and change
     const handleScroll = () => {
@@ -32,7 +39,7 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    
+
     // Initialize collapse button
     if (navbarCollapseRef.current) {
       new bootstrap.Collapse(navbarCollapseRef.current, {
@@ -40,8 +47,10 @@ const Navbar = () => {
       });
     }
 
-    // Handle smooth scrolling
+    // Handle smooth scrolling only on home page
     const handleNavLinkClick = (e) => {
+      if (!isHomePage) return;
+
       const { target } = e;
       if (target.classList.contains('js-scroll') && target.hash) {
         e.preventDefault();
@@ -55,7 +64,7 @@ const Navbar = () => {
             top: offsetPosition,
             behavior: 'smooth'
           });
-          
+
           // Hide navbar on mobile
           if (navbarCollapseRef.current) {
             const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapseRef.current);
@@ -67,19 +76,23 @@ const Navbar = () => {
       }
     };
 
-    document.querySelectorAll('.js-scroll').forEach(link => {
-      link.addEventListener('click', handleNavLinkClick);
-    });
+    if (isHomePage) {
+      document.querySelectorAll('.js-scroll').forEach(link => {
+        link.addEventListener('click', handleNavLinkClick);
+      });
+    }
 
     // Cleanup event listeners
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      scrollSpy.dispose();
+      if (scrollSpy) {
+        scrollSpy.dispose();
+      }
       document.querySelectorAll('.js-scroll').forEach(link => {
         link.removeEventListener('click', handleNavLinkClick);
       });
     };
-  }, []);
+  }, [isHomePage]);
 
   // Handle navbar toggler click
   const handleTogglerClick = () => {
@@ -116,25 +129,29 @@ const Navbar = () => {
         >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link js-scroll active" href="#home">
+              <Link className={`nav-link ${isHomePage ? 'js-scroll active' : ''}`} to="/">
                 Home
-              </a>
+              </Link>
             </li>
-            <li className="nav-item">
-              <a className="nav-link js-scroll" href="#about">
-                About
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link js-scroll" href="#work">
-                Work
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link js-scroll" href="#contact">
-                Contact
-              </a>
-            </li>
+            {isHomePage && (
+              <>
+                <li className="nav-item">
+                  <a className="nav-link js-scroll" href="#about">
+                    About
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link js-scroll" href="#work">
+                    Work
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link js-scroll" href="#contact">
+                    Contact
+                  </a>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>

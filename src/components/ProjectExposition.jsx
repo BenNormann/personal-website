@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./stars.scss";
 import luxxleLogo from "../assets/LuxxleLogoHD.png";
 import killtoneLogo from "../assets/KilltoneLogo.png";
@@ -7,8 +7,21 @@ import ifPredictorImg from "../assets/ifPredictor.png";
 import commRECrawlerImg from "../assets/CommRECrawler.png";
 import valentineImg from "../assets/Valentine.png";
 
+// Exposition media imports
+import commercialRealestate1 from "../assets/exposition-media/CommercialRealestate1.png";
+import commercialRealestate2 from "../assets/exposition-media/CommercialRealestate2.png";
+import commercialRealestate3 from "../assets/exposition-media/CommercialRealestate3.png";
+import commercialRealestate4 from "../assets/exposition-media/CommercialRealestate4.png";
+import valentines1 from "../assets/exposition-media/Valentines1.png";
+import valentines2 from "../assets/exposition-media/Valentines2.png";
+import valentines4 from "../assets/exposition-media/Valentines4.png";
+import valentines5 from "../assets/exposition-media/Valentines5.png";
+import valentines6 from "../assets/exposition-media/Valentines6.png";
+import luxxleScreenshot from "../assets/exposition-media/LuxxleScreenshot.png";
+
 const ProjectExposition = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const projectId = location.pathname.substring(1); // Remove the leading slash
   const [videoError, setVideoError] = useState(false);
 
@@ -28,8 +41,14 @@ const ProjectExposition = () => {
         "Enhanced security features and data protection",
         "Optimized performance with minimal resource usage"
       ],
-      images: [],
-      video: "https://player.vimeo.com/video/833430038"
+      images: [
+        luxxleScreenshot
+      ],
+      video: "https://player.vimeo.com/video/833430038",
+      liveLinks: [
+        { url: "https://luxxle.com/", label: "Luxxle Homepage" },
+        { url: "https://luxxle.com/luxchat", label: "LuxChat" }
+      ]
     },
     "killtone": {
       title: "Killtone Game",
@@ -47,7 +66,14 @@ const ProjectExposition = () => {
         "Physics-based gameplay mechanics"
       ],
       images: [],
-      video: null
+      videos: [
+        { url: "https://player.vimeo.com/video/1119562349", title: "Killtone Prototype Demo" },
+        { url: "https://player.vimeo.com/video/1119565135", title: "Killtone Demo" }
+      ],
+      github: [
+        { url: "https://github.com/BenNormann/Killtone", label: "Killtone Game" },
+        { url: "https://github.com/BenNormann/Kronkar", label: "Killtone Prototype" }
+      ]
     },
     "if-predictor": {
       title: "If-Statement Condition Predictor",
@@ -66,7 +92,8 @@ const ProjectExposition = () => {
         "Machine learning pipeline for code prediction"
       ],
       images: [],
-      video: null
+      video: null,
+      github: "https://github.com/BenNormann/if-predictor-CodeT5"
     },
     "commercial-realestate-crawler": {
       title: "Commercial Real Estate Crawler",
@@ -84,8 +111,14 @@ const ProjectExposition = () => {
         "Email notification system for new listings",
         "Scheduled execution via cron jobs"
       ],
-      images: [],
-      video: null
+      images: [
+        commercialRealestate1,
+        commercialRealestate2,
+        commercialRealestate3,
+        commercialRealestate4
+      ],
+      video: null,
+      github: "https://github.com/BenNormann/commercial-realestate-crawler-v3"
     },
     "valentines-day-card": {
       title: "Valentine's Day Card App",
@@ -102,8 +135,15 @@ const ProjectExposition = () => {
         "Image upload and customization options",
         "Secure user authentication system"
       ],
-      images: [],
-      video: null
+      images: [
+        valentines1,
+        valentines2,
+        valentines4,
+        valentines5,
+        valentines6
+      ],
+      video: null,
+      github: "https://github.com/BenNormann/valentines-website-template"
     }
   };
 
@@ -203,19 +243,89 @@ const ProjectExposition = () => {
                   className="img-fluid"
                   style={{ maxHeight: "280px", objectFit: "contain", borderRadius: "12px", boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)" }}
                 />
+                {project.github && (
+                  <div className="mt-3">
+                    {Array.isArray(project.github) ? (
+                      project.github.map((link, index) => (
+                        <div key={index} className="mb-2">
+                          <a
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-outline-primary btn-sm"
+                            style={{ fontSize: "18px", width: "100%", padding: "8px 16px" }}
+                          >
+                            <i className="fa fa-github" aria-hidden="true"></i> {link.label}
+                          </a>
+                        </div>
+                      ))
+                    ) : (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-outline-primary btn-sm"
+                        style={{ fontSize: "14px", width: "100%", padding: "6px 12px" }}
+                      >
+                        <i className="fa fa-github" aria-hidden="true"></i> View on GitHub
+                      </a>
+                    )}
+                  </div>
+                )}
+
+                {/* Live Links */}
+                {project.liveLinks && (
+                  <div className="mt-3">
+                    <h6 style={{ fontSize: "12px", color: "#6c757d", marginBottom: "8px", textAlign: "center" }}>
+                      Links to Live
+                    </h6>
+                    {project.liveLinks.map((link, index) => (
+                      <div key={index} className="mb-2">
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-outline-success btn-sm"
+                          style={{ fontSize: "14px", width: "100%", padding: "6px 12px" }}
+                        >
+                          <i className="fa fa-external-link" aria-hidden="true"></i> {link.label}
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
 
           {/* Media Section - Images and Videos */}
-          {(project.images.length > 0 || project.video) && (
+          {(project.images.length > 0 || project.video || project.videos) && (
             <div className="row">
               <div className="col-md-6 col-lg-8 offset-md-3 offset-lg-2 mb-5">
                 <div className="project-media">
                   <h4>Media</h4>
                   <div className="media-gallery">
+                  {/* Multiple Videos */}
+                  {project.videos && Array.isArray(project.videos) && project.videos.map((video, index) => (
+                    <div key={index} className="media-item video-item mb-4">
+                      <h5>{video.title}</h5>
+                      <div className="video-container">
+                        <div style={{padding:'56.25% 0 0 0', position:'relative'}}>
+                          <iframe
+                            src={video.url}
+                            frameBorder="0"
+                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                            style={{position:'absolute', top:0, left:0, width:'100%', height:'100%'}}
+                            title={video.title}
+                          />
+                        </div>
+                        <script src="https://player.vimeo.com/api/player.js"></script>
+                      </div>
+                    </div>
+                  ))}
+
                   {/* Video */}
-                  {project.video && (
+                  {project.video && !project.videos && (
                     <div className="media-item video-item mb-4">
                       <h5>Demo Video</h5>
                       <div className="video-container">
@@ -285,9 +395,29 @@ const ProjectExposition = () => {
         {/* Back to Portfolio */}
         <div className="row">
           <div className="col-sm-12 text-center mt-5">
-            <Link to="/#work" className="btn btn-primary">
+            <button
+              className="btn btn-primary"
+              onClick={() => {
+                // Navigate to home page and scroll to portfolio section
+                navigate('/');
+                // Use setTimeout to ensure navigation completes before scrolling
+                setTimeout(() => {
+                  const targetElement = document.querySelector('#work');
+                  if (targetElement) {
+                    const navHeight = document.querySelector('#mainNav')?.clientHeight || 72;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = targetPosition - navHeight + 5;
+
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }
+                }, 100);
+              }}
+            >
               ← Back to Portfolio
-            </Link>
+            </button>
           </div>
         </div>
       </div>

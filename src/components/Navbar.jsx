@@ -36,7 +36,18 @@ const Navbar = () => {
 
     // Handle scroll for navbar styling and change
     const handleScroll = () => {
-      if (window.pageYOffset > 50) {
+      // Check both window scroll and potential inner container scroll
+      let scrollTop = window.pageYOffset;
+
+      // On exposition pages, also check for inner scrollable containers
+      if (!isHomePage) {
+        const scrollableContainer = document.querySelector('.project-exposition');
+        if (scrollableContainer) {
+          scrollTop = Math.max(scrollTop, scrollableContainer.scrollTop);
+        }
+      }
+
+      if (scrollTop > 50) {
         document
           .querySelector(".navbar-expand-md")
           ?.classList.add("navbar-reduce");
@@ -54,6 +65,14 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
+
+    // On exposition pages, also listen to container scroll events
+    if (!isHomePage) {
+      const scrollableContainer = document.querySelector('.project-exposition');
+      if (scrollableContainer) {
+        scrollableContainer.addEventListener("scroll", handleScroll);
+      }
+    }
 
     // Initialize collapse manually without data attributes
     if (navbarCollapseRef.current) {
@@ -118,6 +137,15 @@ const Navbar = () => {
     // Cleanup event listeners
     return () => {
       window.removeEventListener("scroll", handleScroll);
+
+      // Remove container scroll listener on exposition pages
+      if (!isHomePage) {
+        const scrollableContainer = document.querySelector('.project-exposition');
+        if (scrollableContainer) {
+          scrollableContainer.removeEventListener("scroll", handleScroll);
+        }
+      }
+
       if (scrollSpy) {
         scrollSpy.dispose();
       }

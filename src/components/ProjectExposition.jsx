@@ -80,9 +80,9 @@ const ProjectExposition = () => {
       title: "Killtone Game",
       logo: killtoneLogo,
       technologies: "JavaScript, Babylon JS, WebSockets",
-      description: `Killtone is a 3D multiplayer game built with Babylon JS. It is a simple game where players can move around
-      and shoot at each other over a LAN connection. I and another friend are developing this game as a side project.
-
+      description: `Killtone is a 3D multiplayer game built with Babylon JS. It is a simple game where players can move 
+      around and shoot at each other over a LAN connection. A friend and I are developing this game as a side project. 
+      
       This project showcases real-time multiplayer gaming capabilities using modern web technologies. The game features
       3D graphics, physics simulation, and network synchronization for an engaging multiplayer experience.`,
       features: [

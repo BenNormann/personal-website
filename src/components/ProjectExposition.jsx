@@ -80,11 +80,10 @@ const ProjectExposition = () => {
       title: "Killtone Game",
       logo: killtoneLogo,
       technologies: "JavaScript, Babylon JS, WebSockets",
-      description: `Killtone is a 3D multiplayer game built with Babylon JS. It is a simple game where players can move 
-      around and shoot at each other over a LAN connection. A friend and I are developing this game as a side project. 
-      
-      This project showcases real-time multiplayer gaming capabilities using modern web technologies. The game features
-      3D graphics, physics simulation, and network synchronization for an engaging multiplayer experience.`,
+      description: `I am building Killtone, a 3D multiplayer browser game using Babylon.js. Designed and developed 
+      features including a 3D environment, physics-based gameplay, and real-time multiplayer support over LAN. The 
+      project demonstrates my ability to integrate graphics, game play physics, and network synchronization into a 
+      responsive front end gaming experience.`,
       features: [
         "3D game environment built with Babylon.js",
         "Real-time multiplayer support via WebSockets",
@@ -150,8 +149,9 @@ const ProjectExposition = () => {
       title: "Valentine's Day Card App",
       logo: valentineImg,
       technologies: "Next.js, Tailwind CSS, React",
-      description: `A web application that allows users to create personalized digital Valentine's Day cards. Built with Next.js
-      and styled using Tailwind CSS, it features customizable recipient names, messages, and images with a secure login system.
+      description: `Built a Valentine’s-Day card template site using TypeScript, Next.js, and Tailwind CSS, combining 
+      design with component-based architecture. Delivered an interactive experience including custom messages and a 
+      success page.
 
       This project demonstrates full-stack web development skills, combining modern React frameworks with beautiful
       UI design and user authentication.`,

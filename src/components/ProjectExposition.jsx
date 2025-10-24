@@ -18,6 +18,10 @@ import valentines4 from "../assets/exposition-media/Valentines4.png";
 import valentines5 from "../assets/exposition-media/Valentines5.png";
 import valentines6 from "../assets/exposition-media/Valentines6.png";
 import luxxleScreenshot from "../assets/exposition-media/LuxxleScreenshot.png";
+import moneoLogo from "../assets/moneoLogo.png";
+import moneoClassifying from "../assets/exposition-media/MoneoClassifying.png";
+import moneoSources from "../assets/exposition-media/MoneoSources.png";
+import moneoTooltip from "../assets/exposition-media/MoneoTooltip.png";
 
 const ProjectExposition = () => {
   const location = useLocation();
@@ -149,7 +153,7 @@ const ProjectExposition = () => {
       title: "Valentine's Day Card App",
       logo: valentineImg,
       technologies: "Next.js, Tailwind CSS, React",
-      description: `Built a Valentine’s-Day card template site using TypeScript, Next.js, and Tailwind CSS, combining 
+      description: `Built a Valentine's-Day card template site using TypeScript, Next.js, and Tailwind CSS, combining 
       design with component-based architecture. Delivered an interactive experience including custom messages and a 
       success page.
 
@@ -170,6 +174,34 @@ const ProjectExposition = () => {
       ],
       video: null,
       github: "https://github.com/BenNormann/valentines-website-template"
+    },
+    "moneo": {
+      title: "Moneo - AI Fact-Checking Browser Extension",
+      logo: moneoLogo,
+      technologies: "JavaScript, Chrome Extension API, OpenAI GPT-4, Web Scraping",
+      description: `An ambitious 24-hour hackathon project for Good Vibes Only that creates an AI-powered fact-checking 
+      browser extension. Moneo automatically analyzes news articles, extracts factual claims, and scores them for 
+      credibility using multi-dimensional verification across AI analysis, academic sources, and cross-spectrum web validation.
+
+      The extension uses advanced linguistic analysis to identify check-worthy claims, then evaluates them across 
+      four independent dimensions: AI credibility rating, tone analysis, scholarly match, and web reinforcement with 
+      political spectrum analysis.`,
+      features: [
+        "Intelligent claim detection using linguistic analysis and argumentation mining",
+        "Multi-dimensional scoring system (AI credibility, tone analysis, scholarly match, web reinforcement)",
+        "Political spectrum analysis to detect echo chambers and reward cross-spectrum verification",
+        "Color-coded visual feedback (green/yellow/red) with interactive tooltips",
+        "Real-time analysis of news articles with automatic claim extraction",
+        "Academic source validation through Google Scholar integration",
+        "Cross-verification across independent news sources"
+      ],
+      images: [
+        moneoClassifying,
+        moneoSources,
+        moneoTooltip
+      ],
+      video: null,
+      github: "https://github.com/BenNormann/Moneo",
     }
   };
 
@@ -251,6 +283,28 @@ const ProjectExposition = () => {
                   <p className="content-text mb-4">{project.description}</p>
                 </div>
 
+                {/* Hackathon Info */}
+                {project.hackathon && (
+                  <div className="project-hackathon mb-4">
+                    <h4 className="content-title">Hackathon Project</h4>
+                    <div className="hackathon-info" style={{
+                      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                      color: 'white',
+                      padding: '20px',
+                      borderRadius: '10px',
+                      marginBottom: '20px'
+                    }}>
+                      <h5 style={{ margin: '0 0 10px 0', fontSize: '18px' }}>{project.hackathon.name}</h5>
+                      <p style={{ margin: '0 0 5px 0', fontSize: '14px' }}>
+                        <strong>Duration:</strong> {project.hackathon.duration}
+                      </p>
+                      <p style={{ margin: '0', fontSize: '14px' }}>
+                        <strong>Achievement:</strong> {project.hackathon.achievement}
+                      </p>
+                    </div>
+                  </div>
+                )}
+
                 {/* Features */}
                 <div className="project-features">
                   <h4 className="content-title">Key Features</h4>
@@ -270,6 +324,7 @@ const ProjectExposition = () => {
                   src={project.logo}
                   alt={`${project.title} Logo`}
                   className="img-fluid"
+                  style={{ width: "100%", maxWidth: "200px", height: "auto" }}
                 />
                 {project.github && (
                   <div className="mt-3">

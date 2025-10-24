@@ -31,6 +31,7 @@ const App = () => {
         <Route path="/if-predictor" element={<ProjectExposition />} />
         <Route path="/commercial-realestate-crawler" element={<ProjectExposition />} />
         <Route path="/valentines-day-card" element={<ProjectExposition />} />
+        <Route path="/moneo" element={<ProjectExposition />} />
       </Routes>
     </Router>
   );

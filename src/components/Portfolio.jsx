@@ -8,6 +8,7 @@ import commRECrawler from "../assets/CommRECrawler.png";
 import valentine from "../assets/Valentine.png";
 import luxxle from "../assets/LuxxleLogoHD.png";
 import killtone from "../assets/KilltoneLogo.png";
+import moneoLogo from "../assets/moneoLogo.png";
 
 const Portfolio = () => {
   return (
@@ -25,6 +26,30 @@ const Portfolio = () => {
           </div>
         </div>
         <div className="row" style={{ display: "flex", flexWrap: "wrap" }}>
+          <div className="col-md-4 d-flex">
+            <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
+              <Link to="/moneo" className="work-box-link">
+                <div className="work-img">
+                  <img src={moneoLogo} alt="Moneo AI Fact-Checking Extension" className="img-fluid" style={{ objectFit: "contain", height: "350px", width: "100%", padding: "60px" }} />
+                </div>
+                <div className="work-content" style={{ flex: "1 0 auto" }}>
+                  <div className="row">
+                    <div className="col-sm-12">
+                      <h2 className="w-title">Moneo - AI Fact-Checking Extension</h2>
+                      <div className="w-more">
+                        <span className="w-ctegory">
+                          JavaScript, Chrome Extension, OpenAI GPT-4
+                        </span>
+                        <p className="mt-2">
+                          An ambitious 24-hour hackathon project that creates an AI-powered fact-checking browser extension. Moneo automatically analyzes news articles, extracts factual claims, and scores them for credibility using multi-dimensional verification across AI analysis, academic sources, and cross-spectrum web validation.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
           <div className="col-md-4 d-flex">
             <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
               <Link to="/luxxle" className="work-box-link">

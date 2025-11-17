@@ -81,10 +81,10 @@ const ProjectExposition = () => {
       ]
     },
     "killtone": {
-      title: "Killtone Game",
+      title: "FPS Exercise",
       logo: killtoneLogo,
       technologies: "JavaScript, Babylon JS, WebSockets",
-      description: `I am building Killtone, a 3D multiplayer browser game using Babylon.js. Designed and developed 
+      description: `I am building FPS Exercise, a 3D multiplayer browser game using Babylon.js. Designed and developed 
       features including a 3D environment, physics-based gameplay, and real-time multiplayer support over LAN. The 
       project demonstrates my ability to integrate graphics, game play physics, and network synchronization into a 
       responsive front end gaming experience.`,
@@ -96,12 +96,12 @@ const ProjectExposition = () => {
       ],
       images: [],
       videos: [
-        { url: "https://player.vimeo.com/video/1119562349", title: "Killtone Prototype Demo" },
-        { url: "https://player.vimeo.com/video/1119565135", title: "Killtone Demo" }
+        { url: "https://player.vimeo.com/video/1119562349", title: "FPS Exercise Prototype Demo" },
+        { url: "https://player.vimeo.com/video/1119565135", title: "FPS Exercise Demo" }
       ],
       github: [
-        { url: "https://github.com/BenNormann/Killtone", label: "Killtone Game" },
-        { url: "https://github.com/BenNormann/Kronkar", label: "Killtone Prototype" }
+        { url: "https://github.com/BenNormann/Killtone", label: "FPS Exercise" },
+        { url: "https://github.com/BenNormann/Kronkar", label: "FPS Exercise Prototype" }
       ]
     },
     "if-predictor": {

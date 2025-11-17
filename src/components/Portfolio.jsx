@@ -85,13 +85,13 @@ const Portfolio = () => {
                 <div className="work-content" style={{ flex: "1 0 auto" }}>
                   <div className="row">
                     <div className="col-sm-12">
-                      <h2 className="w-title">Killtone Game</h2>
+                      <h2 className="w-title">FPS Exercise</h2>
                       <div className="w-more">
                         <span className="w-ctegory">
                           JavaScript, Babylon JS
                         </span>
                         <p className="mt-2">
-                          Killtone is a 3D multiplayer game built with Babylon JS. It is a simple game where players can move around and shoot at each other over
+                          FPS Exercise is a 3D multiplayer game built with Babylon JS. It is a simple game where players can move around and shoot at each other over
                            a LAN connection. I and another friend are developing this game as a side project.
                         </p>
                       </div>

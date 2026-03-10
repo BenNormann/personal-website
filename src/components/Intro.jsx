@@ -1,6 +1,5 @@
 import React from "react";
 import { ReactTyped } from "react-typed";
-import GradientText from "../reactbits/GradientText";
 import ClickSpark from "../reactbits/ClickSpark";
 import TiltedButton from "../reactbits/TiltedButton";
 
@@ -11,7 +10,7 @@ const Intro = () => {
         <div className="table-cell">
           <div className="container">
             <h1 className="intro-title mb-4">
-              <GradientText as="span">Ben Normann</GradientText>
+              <span style={{ color: "var(--accent-bright)" }}>Ben Normann</span>
             </h1>
             <p className="intro-subtitle">
               <strong className="text-slider">

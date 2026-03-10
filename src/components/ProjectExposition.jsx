@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import "./stars.scss";
+import { useLocation, useNavigate } from "react-router-dom";
+import Particles from "../reactbits/Particles";
 import luxxleLogo from "../assets/LuxxleLogoHD.png";
 import killtoneLogo from "../assets/KilltoneLogo.png";
 import ifPredictorImg from "../assets/ifPredictor.png";
 import commRECrawlerImg from "../assets/CommRECrawler.png";
 import valentineImg from "../assets/Valentine.png";
 
-// Exposition media imports
 import commercialRealestate1 from "../assets/exposition-media/CommercialRealestate1.png";
 import commercialRealestate2 from "../assets/exposition-media/CommercialRealestate2.png";
 import commercialRealestate3 from "../assets/exposition-media/CommercialRealestate3.png";
@@ -23,10 +22,132 @@ import moneoClassifying from "../assets/exposition-media/MoneoClassifying.png";
 import moneoSources from "../assets/exposition-media/MoneoSources.png";
 import moneoTooltip from "../assets/exposition-media/MoneoTooltip.png";
 
+const projectData = {
+  luxxle: {
+    title: "Luxxle Search Engine/Browser",
+    logo: luxxleLogo,
+    technologies: ["C++", "HTML", "CSS", "Chromium"],
+    description: `As a Founding Team Engineer at Luxxle, I contributed towards the first steps of building their browser. I forked chromium, adopting similar patching/extension architecture to Brave and created the alpha version of the browser.
+
+Luxxle is a privacy-focused web browser that prioritizes user control and data protection. Our mission is to provide a secure browsing experience while maintaining the speed and features users expect from modern browsers.`,
+    features: [
+      "Privacy-focused browsing with built-in tracker blocking",
+      "Customizable extension system similar to Chromium",
+      "Enhanced security features and data protection",
+      "Optimized performance with minimal resource usage",
+    ],
+    images: [luxxleScreenshot],
+    video: "https://player.vimeo.com/video/833430038",
+    liveLinks: [
+      { url: "https://luxxle.com/", label: "Luxxle Homepage" },
+      { url: "https://luxxle.com/luxchat", label: "LuxChat" },
+    ],
+  },
+  killtone: {
+    title: "FPS Exercise",
+    logo: killtoneLogo,
+    technologies: ["JavaScript", "Babylon JS", "WebSockets"],
+    description: `I am building FPS Exercise, a 3D multiplayer browser game using Babylon.js. Designed and developed features including a 3D environment, physics-based gameplay, and real-time multiplayer support over LAN.
+
+The project demonstrates my ability to integrate graphics, gameplay physics, and network synchronization into a responsive front-end gaming experience.`,
+    features: [
+      "3D game environment built with Babylon.js",
+      "Real-time multiplayer support via WebSockets",
+      "LAN connectivity for local network gaming",
+      "Physics-based gameplay mechanics",
+    ],
+    images: [],
+    videos: [
+      { url: "https://player.vimeo.com/video/1119562349", title: "FPS Exercise Prototype Demo" },
+      { url: "https://player.vimeo.com/video/1119565135", title: "FPS Exercise Demo" },
+    ],
+    github: [
+      { url: "https://github.com/BenNormann/Killtone", label: "FPS Exercise" },
+      { url: "https://github.com/BenNormann/Kronkar", label: "FPS Exercise Prototype" },
+    ],
+  },
+  "if-predictor": {
+    title: "If-Statement Condition Predictor",
+    logo: ifPredictorImg,
+    technologies: ["Python", "PyTorch", "Transformers", "NLP"],
+    description: `I developed a predictor that utilises a fine-tuned CodeT5 model to predict missing conditions in Python if statements. The implementation leverages Python 3.9+, PyTorch, Transformers, and scikit-learn for data processing, model training, and evaluation.
+
+This machine learning project demonstrates the application of natural language processing techniques to code analysis and completion. The model can understand code context and suggest appropriate conditional expressions.`,
+    features: [
+      "Fine-tuned CodeT5 transformer model",
+      "NLP-based code understanding and completion",
+      "Python syntax analysis and pattern recognition",
+      "Machine learning pipeline for code prediction",
+    ],
+    images: [],
+    video: null,
+    github: "https://github.com/BenNormann/if-predictor-CodeT5",
+  },
+  "commercial-realestate-crawler": {
+    title: "Commercial Real Estate Crawler",
+    logo: commRECrawlerImg,
+    technologies: ["Python", "JavaScript", "Web Scraping", "Automation"],
+    description: `A crawler that automatically searches real estate websites for new property listings and delivers them via email. It scrapes data from sites like CommercialMLS and LoopNet, filters results based on configurable criteria, and is scheduled via cron jobs.
+
+This automation tool streamlines the process of monitoring commercial real estate markets, providing timely notifications about new listings that match specific investment criteria.`,
+    features: [
+      "Automated web scraping from multiple real estate platforms",
+      "Configurable filtering and search criteria",
+      "Email notification system for new listings",
+      "Scheduled execution via cron jobs",
+    ],
+    images: [
+      commercialRealestate1,
+      commercialRealestate2,
+      commercialRealestate3,
+      commercialRealestate4,
+    ],
+    video: null,
+    github: "https://github.com/BenNormann/commercial-realestate-crawler-v3",
+  },
+  "valentines-day-card": {
+    title: "Valentine's Day Card App",
+    logo: valentineImg,
+    technologies: ["Next.js", "Tailwind CSS", "React", "TypeScript"],
+    description: `Built a Valentine's Day card template site using TypeScript, Next.js, and Tailwind CSS, combining design with component-based architecture. Delivered an interactive experience including custom messages and a success page.
+
+This project demonstrates full-stack web development skills, combining modern React frameworks with beautiful UI design and user authentication.`,
+    features: [
+      "Customizable digital card creation",
+      "Personalized messages and recipient information",
+      "Image upload and customization options",
+      "Secure user authentication system",
+    ],
+    images: [valentines1, valentines2, valentines4, valentines5, valentines6],
+    video: null,
+    github: "https://github.com/BenNormann/valentines-website-template",
+  },
+  moneo: {
+    title: "Moneo — AI Fact-Checking Browser Extension",
+    logo: moneoLogo,
+    technologies: ["JavaScript", "Chrome Extension API", "OpenAI GPT-4", "Web Scraping"],
+    description: `An ambitious 24-hour hackathon project that creates an AI-powered fact-checking browser extension. Moneo automatically analyzes news articles, extracts factual claims, and scores them for credibility using multi-dimensional verification across AI analysis, academic sources, and cross-spectrum web validation.
+
+The extension uses advanced linguistic analysis to identify check-worthy claims, then evaluates them across four independent dimensions: AI credibility rating, tone analysis, scholarly match, and web reinforcement with political spectrum analysis.`,
+    features: [
+      "Intelligent claim detection using linguistic analysis and argumentation mining",
+      "Multi-dimensional scoring system (AI credibility, tone analysis, scholarly match, web reinforcement)",
+      "Political spectrum analysis to detect echo chambers and reward cross-spectrum verification",
+      "Color-coded visual feedback (green/yellow/red) with interactive tooltips",
+      "Real-time analysis of news articles with automatic claim extraction",
+      "Academic source validation through Google Scholar integration",
+      "Cross-verification across independent news sources",
+    ],
+    images: [moneoClassifying, moneoSources, moneoTooltip],
+    video: null,
+    github: "https://github.com/BenNormann/Moneo",
+  },
+};
+
 const ProjectExposition = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const projectId = location.pathname.substring(1); // Remove the leading slash
+  const projectId = location.pathname.substring(1);
   const [videoError, setVideoError] = useState(false);
   const [modalImage, setModalImage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -41,187 +162,22 @@ const ProjectExposition = () => {
     setModalImage(null);
   };
 
-  // Handle ESC key to close modal
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape' && isModalOpen) {
-        closeModal();
-      }
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && isModalOpen) closeModal();
     };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isModalOpen]);
-
-  const projectData = {
-    "luxxle": {
-      title: "Luxxle Search Engine/Browser",
-      logo: luxxleLogo,
-      technologies: "C++, HTML, CSS, Chromium",
-      description: `As a Founding Team Engineer at Luxxle, I contributed towards the first steps of building their browser. I forked
-      chromium, adopting similar patching/extension architecture to Brave and have created the alpha version of the browser.
-
-      Luxxle is a privacy-focused web browser that prioritizes user control and data protection. Our mission is to provide
-      a secure browsing experience while maintaining the speed and features users expect from modern browsers.`,
-      features: [
-        "Privacy-focused browsing with built-in tracker blocking",
-        "Customizable extension system similar to Chromium",
-        "Enhanced security features and data protection",
-        "Optimized performance with minimal resource usage"
-      ],
-      images: [
-        luxxleScreenshot
-      ],
-      video: "https://player.vimeo.com/video/833430038",
-      liveLinks: [
-        { url: "https://luxxle.com/", label: "Luxxle Homepage" },
-        { url: "https://luxxle.com/luxchat", label: "LuxChat" }
-      ]
-    },
-    "killtone": {
-      title: "FPS Exercise",
-      logo: killtoneLogo,
-      technologies: "JavaScript, Babylon JS, WebSockets",
-      description: `I am building FPS Exercise, a 3D multiplayer browser game using Babylon.js. Designed and developed 
-      features including a 3D environment, physics-based gameplay, and real-time multiplayer support over LAN. The 
-      project demonstrates my ability to integrate graphics, game play physics, and network synchronization into a 
-      responsive front end gaming experience.`,
-      features: [
-        "3D game environment built with Babylon.js",
-        "Real-time multiplayer support via WebSockets",
-        "LAN connectivity for local network gaming",
-        "Physics-based gameplay mechanics"
-      ],
-      images: [],
-      videos: [
-        { url: "https://player.vimeo.com/video/1119562349", title: "FPS Exercise Prototype Demo" },
-        { url: "https://player.vimeo.com/video/1119565135", title: "FPS Exercise Demo" }
-      ],
-      github: [
-        { url: "https://github.com/BenNormann/Killtone", label: "FPS Exercise" },
-        { url: "https://github.com/BenNormann/Kronkar", label: "FPS Exercise Prototype" }
-      ]
-    },
-    "if-predictor": {
-      title: "If-Statement Condition Predictor",
-      logo: ifPredictorImg,
-      technologies: "Python, PyTorch, Transformers, NLP",
-      description: `I developed a predictor that utilizes a fine-tuned CodeT5 model to predict missing conditions in Python
-      if statements. The implementation leverages Python 3.9+, PyTorch, Transformers, and scikit-learn for data processing,
-      model training, and evaluation.
-
-      This machine learning project demonstrates the application of natural language processing techniques to code
-      analysis and completion. The model can understand code context and suggest appropriate conditional expressions.`,
-      features: [
-        "Fine-tuned CodeT5 transformer model",
-        "NLP-based code understanding and completion",
-        "Python syntax analysis and pattern recognition",
-        "Machine learning pipeline for code prediction"
-      ],
-      images: [],
-      video: null,
-      github: "https://github.com/BenNormann/if-predictor-CodeT5"
-    },
-    "commercial-realestate-crawler": {
-      title: "Commercial Real Estate Crawler",
-      logo: commRECrawlerImg,
-      technologies: "Python, JavaScript, Web Scraping, Automation",
-      description: `A crawler that automatically searches real estate websites for new property listings and delivers them via email.
-      It scrapes data from sites like CommercialMLS and LoopNet, filters results based on configurable criteria,
-      and is scheduled via cron jobs.
-
-      This automation tool streamlines the process of monitoring commercial real estate markets, providing timely
-      notifications about new listings that match specific investment criteria.`,
-      features: [
-        "Automated web scraping from multiple real estate platforms",
-        "Configurable filtering and search criteria",
-        "Email notification system for new listings",
-        "Scheduled execution via cron jobs"
-      ],
-      images: [
-        commercialRealestate1,
-        commercialRealestate2,
-        commercialRealestate3,
-        commercialRealestate4
-      ],
-      video: null,
-      github: "https://github.com/BenNormann/commercial-realestate-crawler-v3"
-    },
-    "valentines-day-card": {
-      title: "Valentine's Day Card App",
-      logo: valentineImg,
-      technologies: "Next.js, Tailwind CSS, React",
-      description: `Built a Valentine's-Day card template site using TypeScript, Next.js, and Tailwind CSS, combining 
-      design with component-based architecture. Delivered an interactive experience including custom messages and a 
-      success page.
-
-      This project demonstrates full-stack web development skills, combining modern React frameworks with beautiful
-      UI design and user authentication.`,
-      features: [
-        "Customizable digital card creation",
-        "Personalized messages and recipient information",
-        "Image upload and customization options",
-        "Secure user authentication system"
-      ],
-      images: [
-        valentines1,
-        valentines2,
-        valentines4,
-        valentines5,
-        valentines6
-      ],
-      video: null,
-      github: "https://github.com/BenNormann/valentines-website-template"
-    },
-    "moneo": {
-      title: "Moneo - AI Fact-Checking Browser Extension",
-      logo: moneoLogo,
-      technologies: "JavaScript, Chrome Extension API, OpenAI GPT-4, Web Scraping",
-      description: `An ambitious 24-hour hackathon project for Good Vibes Only that creates an AI-powered fact-checking 
-      browser extension. Moneo automatically analyzes news articles, extracts factual claims, and scores them for 
-      credibility using multi-dimensional verification across AI analysis, academic sources, and cross-spectrum web validation.
-
-      The extension uses advanced linguistic analysis to identify check-worthy claims, then evaluates them across 
-      four independent dimensions: AI credibility rating, tone analysis, scholarly match, and web reinforcement with 
-      political spectrum analysis.`,
-      features: [
-        "Intelligent claim detection using linguistic analysis and argumentation mining",
-        "Multi-dimensional scoring system (AI credibility, tone analysis, scholarly match, web reinforcement)",
-        "Political spectrum analysis to detect echo chambers and reward cross-spectrum verification",
-        "Color-coded visual feedback (green/yellow/red) with interactive tooltips",
-        "Real-time analysis of news articles with automatic claim extraction",
-        "Academic source validation through Google Scholar integration",
-        "Cross-verification across independent news sources"
-      ],
-      images: [
-        moneoClassifying,
-        moneoSources,
-        moneoTooltip
-      ],
-      video: null,
-      github: "https://github.com/BenNormann/Moneo",
-    }
-  };
 
   const project = projectData[projectId];
 
-  // Handle video loading timeout
   useEffect(() => {
     if (project && project.video) {
-      // Reset error state when project changes
       setVideoError(false);
-
-      // Set a timeout to detect if video fails to load
-      window.videoErrorTimeout = setTimeout(() => {
-        setVideoError(true);
-      }, 5000); // 5 second timeout
-
+      window.videoErrorTimeout = setTimeout(() => setVideoError(true), 5000);
       return () => {
-        if (window.videoErrorTimeout) {
-          clearTimeout(window.videoErrorTimeout);
-        }
+        if (window.videoErrorTimeout) clearTimeout(window.videoErrorTimeout);
       };
     } else {
       setVideoError(false);
@@ -243,259 +199,198 @@ const ProjectExposition = () => {
     );
   }
 
+  const hasMedia =
+    (project.images && project.images.length > 0) ||
+    project.video ||
+    (project.videos && project.videos.length > 0);
+
   return (
-    <section className="project-exposition sect-pt4 route background">
-      <div className="stars-layer" style={{ zIndex: 1, position: 'relative' }}>
-        <div id="stars" />
-        <div id="stars2" />
-        <div id="stars3" />
+    <section className="project-exposition route">
+      <div className="page-particles-bg">
+        <Particles
+          particleCount={280}
+          particleSpread={10}
+          speed={0.04}
+          moveParticlesOnHover={false}
+          alphaParticles
+          particleBaseSize={80}
+          sizeRandomness={1.5}
+          cameraDistance={20}
+          disableRotation={false}
+        />
       </div>
 
-      <div className="content-layer" style={{ zIndex: 2, position: 'relative' }}>
+      <div className="expo-content-layer">
         <div className="container">
-        <div className="row">
-          <div className="col-sm-12">
-            <div className="title-box text-center">
-              <h3 className="title-a">{project.title}</h3>
-              <p className="subtitle-a">
-                {project.technologies}
-              </p>
-              <div className="line-mf"></div>
-            </div>
-          </div>
-        </div>
 
-        {/* White background container for all content */}
-        <div className="project-content-wrapper">
-          {/* Project Layout: Blank | Content | Logo */}
-          <div className="row mb-5">
-            {/* Blank Column - Left */}
-            <div className="col-md-3 col-lg-2">
-              {/* Blank space for offset */}
-            </div>
-
-            {/* Content Column - Middle */}
-            <div className="col-md-6 col-lg-8">
-              <div className="project-content">
-                {/* Project Description */}
-                <div className="project-description">
-                  <h4 className="content-title">About the Project</h4>
-                  <p className="content-text mb-4">{project.description}</p>
-                </div>
-
-                {/* Hackathon Info */}
-                {project.hackathon && (
-                  <div className="project-hackathon mb-4">
-                    <h4 className="content-title">Hackathon Project</h4>
-                    <div className="hackathon-info" style={{
-                      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                      color: 'white',
-                      padding: '20px',
-                      borderRadius: '10px',
-                      marginBottom: '20px'
-                    }}>
-                      <h5 style={{ margin: '0 0 10px 0', fontSize: '18px' }}>{project.hackathon.name}</h5>
-                      <p style={{ margin: '0 0 5px 0', fontSize: '14px' }}>
-                        <strong>Duration:</strong> {project.hackathon.duration}
-                      </p>
-                      <p style={{ margin: '0', fontSize: '14px' }}>
-                        <strong>Achievement:</strong> {project.hackathon.achievement}
-                      </p>
-                    </div>
-                  </div>
-                )}
-
-                {/* Features */}
-                <div className="project-features">
-                  <h4 className="content-title">Key Features</h4>
-                  <ul className="feature-list mb-4">
-                    {project.features.map((feature, index) => (
-                      <li key={index} className="feature-item">{feature}</li>
-                    ))}
-                  </ul>
-                </div>
+          {/* ── Hero strip ── */}
+          <div className="expo-hero">
+            <img
+              src={project.logo}
+              alt={`${project.title} logo`}
+              className="expo-hero-logo"
+            />
+            <div className="expo-hero-text">
+              <h1 className="expo-hero-title">{project.title}</h1>
+              <div className="expo-tech-badges">
+                {project.technologies.map((tech) => (
+                  <span key={tech} className="expo-badge">{tech}</span>
+                ))}
               </div>
             </div>
+          </div>
 
-            {/* Logo Column - Right */}
-            <div className="col-md-3 col-lg-2">
-              <div className="project-logo text-center">
-                <img
-                  src={project.logo}
-                  alt={`${project.title} Logo`}
-                  className="img-fluid"
-                  style={{ width: "100%", maxWidth: "200px", height: "auto" }}
-                />
-                {project.github && (
-                  <div className="mt-3">
-                    {Array.isArray(project.github) ? (
-                      project.github.map((link, index) => (
-                        <div key={index} className="mb-2">
-                          <a
-                            href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn btn-outline-primary btn-sm"
-                            style={{ fontSize: "18px", width: "100%", padding: "8px 16px" }}
-                          >
-                            <i className="fa fa-github" aria-hidden="true"></i> {link.label}
-                          </a>
-                        </div>
-                      ))
-                    ) : (
+          {/* ── Main content: description (left) + features + links (right) ── */}
+          <div className="row expo-body">
+            <div className="col-lg-7 col-md-6 mb-4">
+              <h4 className="expo-section-label">About the Project</h4>
+              {project.description.split("\n\n").map((para, i) => (
+                <p key={i} className="expo-paragraph">{para.trim()}</p>
+              ))}
+            </div>
+
+            <div className="col-lg-5 col-md-6 mb-4 ps-md-5">
+              <h4 className="expo-section-label">Key Features</h4>
+              <ul className="feature-list mb-4">
+                {project.features.map((feature, i) => (
+                  <li key={i} className="feature-item">{feature}</li>
+                ))}
+              </ul>
+
+              {/* GitHub links */}
+              {project.github && (
+                <div className="expo-links">
+                  {Array.isArray(project.github) ? (
+                    project.github.map((link, i) => (
                       <a
-                        href={project.github}
+                        key={i}
+                        href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn btn-outline-primary btn-sm"
-                        style={{ fontSize: "14px", width: "100%", padding: "6px 12px" }}
+                        className="btn expo-btn-ghost mb-2"
                       >
-                        <i className="fa fa-github" aria-hidden="true"></i> View on GitHub
+                        <i className="fa fa-github" aria-hidden="true" /> {link.label}
                       </a>
-                    )}
-                  </div>
-                )}
+                    ))
+                  ) : (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn expo-btn-ghost mb-2"
+                    >
+                      <i className="fa fa-github" aria-hidden="true" /> View on GitHub
+                    </a>
+                  )}
+                </div>
+              )}
 
-                {/* Live Links */}
-                {project.liveLinks && (
-                  <div className="mt-3">
-                    <h6 style={{ fontSize: "12px", color: "#6c757d", marginBottom: "8px", textAlign: "center" }}>
-                      Links to Live
-                    </h6>
-                    {project.liveLinks.map((link, index) => (
-                      <div key={index} className="mb-2">
-                        <a
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn btn-outline-success btn-sm"
-                          style={{ fontSize: "14px", width: "100%", padding: "6px 12px" }}
-                        >
-                          <i className="fa fa-external-link" aria-hidden="true"></i> {link.label}
-                        </a>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+              {/* Live links */}
+              {project.liveLinks && (
+                <div className="expo-links mt-2">
+                  {project.liveLinks.map((link, i) => (
+                    <a
+                      key={i}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn expo-btn-primary mb-2"
+                    >
+                      <i className="fa fa-external-link" aria-hidden="true" /> {link.label}
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
-          {/* Media Section - Images and Videos */}
-          {(project.images.length > 0 || project.video || project.videos) && (
-            <div className="row">
-              <div className="col-md-6 col-lg-8 offset-md-3 offset-lg-2 mb-5">
-                <div className="project-media">
-                  <h4>Media</h4>
-                  <div className="media-gallery">
-                  {/* Multiple Videos */}
-                  {project.videos && Array.isArray(project.videos) && project.videos.map((video, index) => (
-                    <div key={index} className="media-item video-item mb-4">
-                      <h5>{video.title}</h5>
-                      <div className="video-container">
-                        <div style={{padding:'56.25% 0 0 0', position:'relative'}}>
-                          <iframe
-                            src={video.url}
-                            frameBorder="0"
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                            style={{position:'absolute', top:0, left:0, width:'100%', height:'100%'}}
-                            title={video.title}
-                          />
-                        </div>
-                        <script src="https://player.vimeo.com/api/player.js"></script>
-                      </div>
-                    </div>
-                  ))}
+          {/* ── Media section ── */}
+          {hasMedia && (
+            <div className="expo-media-section">
+              <h4 className="expo-section-label mb-4">Media</h4>
 
-                  {/* Video */}
-                  {project.video && !project.videos && (
-                    <div className="media-item video-item mb-4">
-                      <h5>Demo Video</h5>
-                      <div className="video-container">
-                        {!videoError ? (
-                          <iframe
-                            width="100%"
-                            height="400"
-                            src={project.video}
-                            title={`${project.title} Demo`}
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            onLoad={() => {
-                              // Clear any existing timeout when video loads successfully
-                              if (window.videoErrorTimeout) {
-                                clearTimeout(window.videoErrorTimeout);
-                              }
-                            }}
-                            onError={() => setVideoError(true)}
-                            sandbox="allow-scripts allow-same-origin allow-presentation"
-                            style={{ border: 'none' }}
-                          />
-                        ) : (
-                          <div className="video-error-message" style={{
-                            padding: '20px',
-                            background: '#f8f9fa',
-                            border: '1px solid #dee2e6',
-                            borderRadius: '5px',
-                            textAlign: 'center'
-                          }}>
-                            <p style={{ margin: '0 0 10px 0', color: '#6c757d' }}>
-                              Video unavailable. This demo video is currently private or requires authentication.
-                            </p>
-                            <p style={{ margin: '0', fontSize: '14px', color: '#6c757d' }}>
-                              Please check back later or contact the developer for access.
-                            </p>
-                          </div>
-                        )}
-                      </div>
+              {/* Multiple videos */}
+              {project.videos &&
+                project.videos.map((video, i) => (
+                  <div key={i} className="expo-video-wrap mb-4">
+                    <p className="expo-video-label">{video.title}</p>
+                    <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+                      <iframe
+                        src={video.url}
+                        frameBorder="0"
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                        title={video.title}
+                      />
                     </div>
-                  )}
+                  </div>
+                ))}
 
-                  {/* Images */}
-                  {project.images.length > 0 && (
-                    <div className="media-item images-item">
-                      <h5>Screenshots</h5>
-                      <div className="image-gallery">
-                        {project.images.map((image, index) => (
-                          <div key={index} className="gallery-image mb-3">
-                            <img
-                              src={image}
-                              alt={`${project.title} screenshot ${index + 1}`}
-                              className="img-fluid clickable-image"
-                              onClick={() => openModal(image)}
-                              style={{ cursor: 'pointer' }}
-                            />
-                          </div>
-                        ))}
-                      </div>
+              {/* Single video */}
+              {project.video && !project.videos && (
+                <div className="expo-video-wrap mb-4">
+                  <p className="expo-video-label">Demo Video</p>
+                  {!videoError ? (
+                    <iframe
+                      width="100%"
+                      height="400"
+                      src={project.video}
+                      title={`${project.title} Demo`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      onLoad={() => {
+                        if (window.videoErrorTimeout) clearTimeout(window.videoErrorTimeout);
+                      }}
+                      onError={() => setVideoError(true)}
+                      sandbox="allow-scripts allow-same-origin allow-presentation"
+                      style={{ border: "none" }}
+                    />
+                  ) : (
+                    <div className="expo-video-error">
+                      <p>Video unavailable. This demo is currently private or requires authentication.</p>
                     </div>
                   )}
                 </div>
-              </div>
-            </div>
-          </div>
-        )}
-        </div>
+              )}
 
-        {/* Back to Portfolio */}
-        <div className="row">
-          <div className="col-sm-12 text-center mt-5">
+              {/* Image grid */}
+              {project.images && project.images.length > 0 && (
+                <>
+                  <p className="expo-video-label">Screenshots</p>
+                  <div className="expo-image-grid">
+                    {project.images.map((image, i) => (
+                      <div
+                        key={i}
+                        className="expo-image-thumb"
+                        onClick={() => openModal(image)}
+                      >
+                        <img
+                          src={image}
+                          alt={`${project.title} screenshot ${i + 1}`}
+                          className="img-fluid"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+
+          {/* ── Back button ── */}
+          <div className="text-center mt-5 pb-5">
             <button
               className="btn btn-primary"
               onClick={() => {
-                // Navigate to home page and scroll to portfolio section
-                navigate('/');
-                // Use setTimeout to ensure navigation completes before scrolling
+                navigate("/");
                 setTimeout(() => {
-                  const targetElement = document.querySelector('#work');
-                  if (targetElement) {
-                    const navHeight = document.querySelector('#mainNav')?.clientHeight || 72;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = targetPosition - navHeight + 5;
-
+                  const target = document.querySelector("#work");
+                  if (target) {
+                    const navHeight = document.querySelector("#mainNav")?.clientHeight || 72;
                     window.scrollTo({
-                      top: offsetPosition,
-                      behavior: 'smooth'
+                      top: target.getBoundingClientRect().top + window.pageYOffset - navHeight + 5,
+                      behavior: "smooth",
                     });
                   }
                 }, 100);
@@ -507,55 +402,33 @@ const ProjectExposition = () => {
         </div>
       </div>
 
-      {/* Image Modal */}
+      {/* Image modal */}
       {isModalOpen && modalImage && (
         <div
           className="image-modal-overlay"
           onClick={closeModal}
           style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            zIndex: 9999,
-            cursor: 'pointer'
+            position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
+            backgroundColor: "rgba(0,0,0,0.85)",
+            display: "flex", justifyContent: "center", alignItems: "center",
+            zIndex: 9999, cursor: "pointer",
           }}
         >
           <div
             className="image-modal-content"
             onClick={(e) => e.stopPropagation()}
-            style={{
-              position: 'relative',
-              maxWidth: '90vw',
-              maxHeight: '85vh',
-              cursor: 'default'
-            }}
+            style={{ position: "relative", maxWidth: "90vw", maxHeight: "85vh", cursor: "default" }}
           >
             <button
               onClick={closeModal}
               className="modal-close-btn"
               style={{
-                position: 'absolute',
-                top: '10px',
-                right: '10px',
-                background: 'rgba(0, 0, 0, 0.7)',
-                border: 'none',
-                color: 'white',
-                fontSize: '24px',
-                cursor: 'pointer',
-                padding: '8px 12px',
-                borderRadius: '50%',
-                zIndex: 10000,
-                width: '40px',
-                height: '40px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
+                position: "absolute", top: "10px", right: "10px",
+                background: "rgba(0,0,0,0.7)", border: "none", color: "white",
+                fontSize: "24px", cursor: "pointer", padding: "8px 12px",
+                borderRadius: "50%", zIndex: 10000,
+                width: "40px", height: "40px",
+                display: "flex", alignItems: "center", justifyContent: "center",
               }}
             >
               ×
@@ -563,17 +436,11 @@ const ProjectExposition = () => {
             <img
               src={modalImage}
               alt="Enlarged view"
-              style={{
-                maxWidth: '100%',
-                maxHeight: '100%',
-                objectFit: 'contain',
-                borderRadius: '5px'
-              }}
+              style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain", borderRadius: "5px" }}
             />
           </div>
         </div>
       )}
-      </div>
     </section>
   );
 };

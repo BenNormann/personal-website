@@ -38,46 +38,38 @@ const About = () => {
         <div className="container">
           <div className="row">
             <div className="col-sm-12">
-              <div className="box-shadow-full">
-                <div className="title-box-2">
-                  <h5 className="title-left">About Me</h5>
-                </div>
-                <div className="row">
-              
-                  <div className="col-md-6">
-                      <div className="row h-100">
-                        <div>
-                          <div className="pt-4 pt-md-0">
-                            <img
-                              className="img-fluid b-shadow-a"
-                              alt="ben"
-                              src={benImage}
-                              style={{ width: "100%", height: "auto", objectFit: "cover" }}
-                            />
-                          </div>
-                          <div className="about-me testimonial mt-4 p-3" style={{ backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "10px" }}>
-                            <p>
-                              "Ben's technical aptitude is complemented by a methodical approach to problem-solving and a strong intellectual curiosity. He is never afraid to ask thoughtful questions, and his ability to quickly grasp new concepts and technologies made him an invaluable contributor during his internship."
-                            </p>
-                            <p >- Carl Tydingco (Co-Founder/CTO xDJs)</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="about-me pt-4 pt-md-0">
-                        {aboutMe.map(content => (
-                          <p className="lead" key={content.id}>
-                            {content.content}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="title-box text-center">
+                <h3 className="title-a">About Me</h3>
+                <div className="line-mf"></div>
               </div>
             </div>
           </div>
+          <div className="row align-items-start mt-4">
+            <div className="col-md-5">
+              <img
+                className="img-fluid b-shadow-a"
+                alt="ben"
+                src={benImage}
+                style={{ width: "100%", height: "auto", objectFit: "cover", borderRadius: "10px" }}
+              />
+              <div className="about-me testimonial mt-4 p-3" style={{ backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "10px" }}>
+                <p>
+                  "Ben's technical aptitude is complemented by a methodical approach to problem-solving and a strong intellectual curiosity. He is never afraid to ask thoughtful questions, and his ability to quickly grasp new concepts and technologies made him an invaluable contributor during his internship."
+                </p>
+                <p>- Carl Tydingco (Co-Founder/CTO xDJs)</p>
+              </div>
+            </div>
+            <div className="col-md-7">
+              <div className="about-me pt-4 pt-md-0 ps-md-4">
+                {aboutMe.map(content => (
+                  <p className="lead" key={content.id}>
+                    {content.content}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </ScrollReveal>
     </section>
   );

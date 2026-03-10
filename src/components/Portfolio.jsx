@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import HoverTilt from "../reactbits/HoverTilt";
 import ScrollReveal from "../reactbits/ScrollReveal";
 
-//import images
 import musicNerd from "../assets/musicNerdLogo.ico";
 import ifPredictor from "../assets/ifPredictor.png";
 import commRECrawler from "../assets/CommRECrawler.png";
@@ -11,6 +10,126 @@ import valentine from "../assets/Valentine.png";
 import luxxle from "../assets/LuxxleLogoHD.png";
 import killtone from "../assets/KilltoneLogo.png";
 import moneoLogo from "../assets/moneoLogo.png";
+
+const projects = [
+  {
+    id: "moneo",
+    to: "/moneo",
+    img: moneoLogo,
+    alt: "Moneo AI Fact-Checking Extension",
+    imgStyle: { objectFit: "contain", height: "350px", width: "100%", padding: "60px" },
+    title: "Moneo - AI Fact-Checking Extension",
+    category: "JavaScript, Chrome Extension, OpenAI GPT-4",
+    description:
+      "An ambitious 24-hour hackathon project that creates an AI-powered fact-checking browser extension. Moneo automatically analyzes news articles, extracts factual claims, and scores them for credibility using multi-dimensional verification across AI analysis, academic sources, and cross-spectrum web validation.",
+  },
+  {
+    id: "luxxle",
+    to: "/luxxle",
+    img: luxxle,
+    alt: "Luxxle Web Explorer/Browser",
+    imgStyle: { objectFit: "cover", height: "350px", width: "100%" },
+    title: "Luxxle Search Engine/Browser",
+    category: "C++, HTML, CSS",
+    description:
+      "As a Founding Team Engineer at Luxxle, I contributed towards the first steps of building their browser. I forked chromium, adopting similar patching/extension architecture to Brave and have created the alpha version of the browser. This privacy-focused browser provides enhanced security and user control.",
+  },
+  {
+    id: "killtone",
+    to: "/killtone",
+    img: killtone,
+    alt: "KT Logo",
+    imgStyle: { objectFit: "cover", height: "350px", width: "100%" },
+    title: "FPS Exercise",
+    category: "JavaScript, Babylon JS",
+    description:
+      "FPS Exercise is a 3D multiplayer game built with Babylon JS. It is a simple game where players can move around and shoot at each other over a LAN connection. I and another friend are developing this game as a side project.",
+  },
+  {
+    id: "musicnerd",
+    href: "https://www.musicnerd.xyz/",
+    img: musicNerd,
+    alt: "MusicNerd App",
+    imgStyle: { objectFit: "contain", height: "280px", width: "100%", margin: "0 auto", display: "block", padding: "35px 0" },
+    title: "MusicNerd (xDJs)",
+    category: "React, APIs, UI/UX, Figma",
+    description:
+      "As a Software Development Intern at xDJs, I contributed to MusicNerd, a React-based web app that interfaces with music data APIs. I led the implementation of an abstraction layer between frontend and backend services and redesigned the UI/UX in Figma.",
+  },
+  {
+    id: "if-predictor",
+    to: "/if-predictor",
+    img: ifPredictor,
+    alt: "If-Statement Condition Predictor",
+    imgStyle: { objectFit: "cover", height: "350px", width: "100%" },
+    title: "If-Statement Condition Predictor",
+    category: "Python, PyTorch, Transformers, NLP",
+    description:
+      "I developed a predictor that utilizes a fine-tuned CodeT5 model to predict missing conditions in Python if statements. The implementation leverages Python 3.9+, PyTorch, Transformers, and scikit-learn for data processing, model training, and evaluation.",
+  },
+  {
+    id: "commercial-realestate-crawler",
+    to: "/commercial-realestate-crawler",
+    img: commRECrawler,
+    alt: "Commercial Real Estate Crawler",
+    imgStyle: { objectFit: "cover", height: "350px", width: "100%" },
+    title: "Commercial Real Estate Crawler",
+    category: "Python, JavaScript, Web Scraping",
+    description:
+      "A crawler that automatically searches real estate websites for new property listings and delivers them via email. It scrapes data from sites like CommercialMLS and LoopNet, filters results based on configurable criteria, and is scheduled via cron jobs.",
+  },
+  {
+    id: "valentines-day-card",
+    to: "/valentines-day-card",
+    img: valentine,
+    alt: "Valentine's Day Card Web App",
+    imgStyle: { objectFit: "contain", height: "280px", width: "100%", margin: "0 auto", display: "block", padding: "35px 0" },
+    title: "Valentine's Day Card App",
+    category: "Next.js, Tailwind CSS, React",
+    description:
+      "A web application that allows users to create personalized digital Valentine's Day cards. Built with Next.js and styled using Tailwind CSS, it features customizable recipient names, messages, and images with a secure login system.",
+  },
+];
+
+const ProjectCard = ({ project }) => {
+  const inner = (
+    <>
+      <div className="work-img">
+        <img src={project.img} alt={project.alt} className="img-fluid" style={project.imgStyle} />
+      </div>
+      <div className="work-content" style={{ flex: "1 0 auto" }}>
+        <div className="row">
+          <div className="col-sm-12">
+            <h2 className="w-title">{project.title}</h2>
+            <div className="w-more">
+              <span className="w-ctegory">{project.category}</span>
+              <p className="mt-2">{project.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+
+  return (
+    <div className="work-box w-100 h-100" style={{ display: "flex", flexDirection: "column" }}>
+      {project.href ? (
+        <a
+          href={project.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: "flex", flexDirection: "column", height: "100%" }}
+        >
+          {inner}
+        </a>
+      ) : (
+        <Link to={project.to} className="work-box-link">
+          {inner}
+        </Link>
+      )}
+    </div>
+  );
+};
 
 const Portfolio = () => {
   return (
@@ -27,206 +146,16 @@ const Portfolio = () => {
             </div>
           </div>
         </div>
-        <div className="row" style={{ display: "flex", flexWrap: "wrap" }}>
-          <div className="col-md-4 d-flex">
-            <ScrollReveal>
-              <HoverTilt className="w-100">
-                <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
-              <Link to="/moneo" className="work-box-link">
-                <div className="work-img">
-                  <img src={moneoLogo} alt="Moneo AI Fact-Checking Extension" className="img-fluid" style={{ objectFit: "contain", height: "350px", width: "100%", padding: "60px" }} />
-                </div>
-                <div className="work-content" style={{ flex: "1 0 auto" }}>
-                  <div className="row">
-                    <div className="col-sm-12">
-                      <h2 className="w-title">Moneo - AI Fact-Checking Extension</h2>
-                      <div className="w-more">
-                        <span className="w-ctegory">
-                          JavaScript, Chrome Extension, OpenAI GPT-4
-                        </span>
-                        <p className="mt-2">
-                          An ambitious 24-hour hackathon project that creates an AI-powered fact-checking browser extension. Moneo automatically analyzes news articles, extracts factual claims, and scores them for credibility using multi-dimensional verification across AI analysis, academic sources, and cross-spectrum web validation.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
+        <div className="row align-items-stretch" style={{ flexWrap: "wrap" }}>
+          {projects.map((project) => (
+            <div key={project.id} className="col-md-4 d-flex mb-4">
+              <ScrollReveal containerClassName="h-100 w-100">
+                <HoverTilt className="w-100" containerHeight="100%">
+                  <ProjectCard project={project} />
+                </HoverTilt>
+              </ScrollReveal>
             </div>
-              </HoverTilt>
-            </ScrollReveal>
-          </div>
-          <div className="col-md-4 d-flex">
-            <ScrollReveal>
-              <HoverTilt className="w-100">
-                <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
-              <Link to="/luxxle" className="work-box-link">
-                <div className="work-img">
-                  <img src={luxxle} alt="Luxxle Web Explorer/Browser" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
-                </div>
-                <div className="work-content" style={{ flex: "1 0 auto" }}>
-                  <div className="row">
-                    <div className="col-sm-12">
-                      <h2 className="w-title">Luxxle Search Engine/Browser</h2>
-                      <div className="w-more">
-                        <span className="w-ctegory">
-                          C++, HTML, CSS
-                        </span>
-                        <p className="mt-2">
-                          As a Founding Team Engineer at Luxxle, I contributed towards the first steps of building their browser. I forked
-                          chromium, adopting similar patching/extension architecture to Brave and have created the alpha version of the browser.
-                          This privacy-focused browser provides enhanced security and user control.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-              </HoverTilt>
-            </ScrollReveal>
-          </div>
-          <div className="col-md-4 d-flex">
-            <ScrollReveal>
-              <HoverTilt className="w-100">
-                <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
-              <Link to="/killtone" className="work-box-link">
-                <div className="work-img">
-                  <img src={killtone} alt="KT Logo" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
-                </div>
-                <div className="work-content" style={{ flex: "1 0 auto" }}>
-                  <div className="row">
-                    <div className="col-sm-12">
-                      <h2 className="w-title">FPS Exercise</h2>
-                      <div className="w-more">
-                        <span className="w-ctegory">
-                          JavaScript, Babylon JS
-                        </span>
-                        <p className="mt-2">
-                          FPS Exercise is a 3D multiplayer game built with Babylon JS. It is a simple game where players can move around and shoot at each other over
-                           a LAN connection. I and another friend are developing this game as a side project.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-              </HoverTilt>
-            </ScrollReveal>
-          </div>
-          <div className="col-md-4 d-flex">
-            <ScrollReveal>
-              <HoverTilt className="w-100">
-                <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
-              <a href="https://www.musicnerd.xyz/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
-                <div className="work-img">
-                  <img src={musicNerd} alt="MusicNerd App" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
-                </div>
-                <div className="work-content" style={{ flex: "1 0 auto" }}>
-                  <div className="row">
-                    <div className="col-sm-12">
-                      <h2 className="w-title">MusicNerd (xDJs)</h2>
-                      <div className="w-more">
-                        <span className="w-ctegory">
-                          React, APIs, UI/UX, Figma
-                        </span>
-                        <p className="mt-2">
-                          As a Software Development Intern at xDJs, I contributed to MusicNerd, a React-based web app that interfaces with music data APIs. I led the implementation of an abstraction layer between frontend and backend services and redesigned the UI/UX in Figma.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-              </HoverTilt>
-            </ScrollReveal>
-          </div>
-          <div className="col-md-4 d-flex">
-            <ScrollReveal>
-              <HoverTilt className="w-100">
-                <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
-              <Link to="/if-predictor" className="work-box-link">
-                <div className="work-img">
-                  <img src={ifPredictor} alt="If-Statement Condition Predictor" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
-                </div>
-                <div className="work-content" style={{ flex: "1 0 auto" }}>
-                  <div className="row">
-                    <div className="col-sm-12">
-                      <h2 className="w-title">If-Statement Condition Predictor</h2>
-                      <div className="w-more">
-                        <span className="w-ctegory">
-                          Python, PyTorch, Transformers, NLP
-                        </span>
-                        <p className="mt-2">
-                          I developed a predictor that utilizes a fine-tuned CodeT5 model to predict missing conditions in Python if statements. The implementation leverages Python 3.9+, PyTorch, Transformers, and scikit-learn for data processing, model training, and evaluation.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-              </HoverTilt>
-            </ScrollReveal>
-          </div>
-          <div className="col-md-4 d-flex">
-            <ScrollReveal>
-              <HoverTilt className="w-100">
-                <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
-              <Link to="/commercial-realestate-crawler" className="work-box-link">
-                <div className="work-img">
-                  <img src={commRECrawler} alt="Commercial Real Estate Crawler" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
-                </div>
-                <div className="work-content" style={{ flex: "1 0 auto" }}>
-                  <div className="row">
-                    <div className="col-sm-12">
-                      <h2 className="w-title">Commercial Real Estate Crawler</h2>
-                      <div className="w-more">
-                        <span className="w-ctegory">
-                          Python, JavaScript, Web Scraping
-                        </span>
-                        <p className="mt-2">
-                          A crawler that automatically searches real estate websites for new property listings and delivers them via email. It scrapes data from sites like CommercialMLS and LoopNet, filters results based on configurable criteria, and is scheduled via cron jobs.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-              </HoverTilt>
-            </ScrollReveal>
-          </div>
-          <div className="col-md-4 d-flex">
-            <ScrollReveal>
-              <HoverTilt className="w-100">
-                <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
-              <Link to="/valentines-day-card" className="work-box-link">
-                <div className="work-img">
-                  <img src={valentine} alt="Valentine's Day Card Web App" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
-                </div>
-                <div className="work-content" style={{ flex: "1 0 auto" }}>
-                  <div className="row">
-                    <div className="col-sm-12">
-                      <h2 className="w-title">Valentine's Day Card App</h2>
-                      <div className="w-more">
-                        <span className="w-ctegory">
-                          Next.js, Tailwind CSS, React
-                        </span>
-                        <p className="mt-2">
-                          A web application that allows users to create personalized digital Valentine's Day cards. Built with Next.js and styled using Tailwind CSS, it features customizable recipient names, messages, and images with a secure login system.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-              </HoverTilt>
-            </ScrollReveal>
-          </div>
+          ))}
         </div>
       </div>
     </section>

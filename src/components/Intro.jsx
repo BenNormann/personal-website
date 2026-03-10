@@ -1,17 +1,12 @@
 import React from "react";
-import "./stars.scss";
 import { ReactTyped } from "react-typed";
 import GradientText from "../reactbits/GradientText";
 import ClickSpark from "../reactbits/ClickSpark";
+import TiltedButton from "../reactbits/TiltedButton";
 
 const Intro = () => {
   return (
-    // <div id="home" className="intro route bg-image " style={{backgroundImage: "url("+bigImage+")"}}>
-    <div id="home" className="intro route bg-image background">
-      <div id="stars" />
-      <div id="stars2" />
-      <div id="stars3" />
-
+    <div id="home" className="intro route">
       <div className="intro-content display-table">
         <div className="table-cell">
           <div className="container">
@@ -34,16 +29,11 @@ const Intro = () => {
                 />
               </strong>
             </p>
-            <p className="pt-3">
+            <p className="pt-3" style={{ marginTop: "20px" }}>
               <ClickSpark>
-                <a
-                  className="btn btn-primary btn js-scroll px-4"
-                  href="#work"
-                  role="button"
-                  style={{ marginTop: "20px" }}
-                >
-                  My Portfolio
-                </a>
+                <TiltedButton href="#work" className="js-scroll">
+                  My Portfolio &nbsp;→
+                </TiltedButton>
               </ClickSpark>
             </p>
           </div>

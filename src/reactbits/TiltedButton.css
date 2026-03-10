@@ -1,0 +1,67 @@
+.tb-wrap {
+  display: inline-block;
+  position: relative;
+}
+
+.tb-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 2rem;
+  border-radius: 9999px;
+  background: var(--bg-card-solid);
+  border: 1px solid rgba(119, 50, 184, 0.2);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  will-change: transform;
+  cursor: pointer;
+}
+
+.tb-inner:hover,
+.tb-inner:focus {
+  color: var(--text-primary);
+  text-decoration: none;
+  outline: none;
+}
+
+.tb-inner.is-hovered {
+  border-color: rgba(119, 50, 184, 0.5);
+  box-shadow: 0 0 28px rgba(119, 50, 184, 0.22);
+}
+
+/* The text label scales slightly on hover for a satisfying "zoom" */
+.tb-label {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  transition: transform 220ms ease;
+}
+
+.tb-inner.is-hovered .tb-label {
+  transform: scale(1.06);
+}
+
+/* Cursor-tracking radial glow — same technique as TiltedCard overlay */
+.tb-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--tb-x, 50%) var(--tb-y, 50%),
+    rgba(119, 50, 184, 0.28) 0%,
+    rgba(119, 50, 184, 0) 60%
+  );
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.tb-inner.is-hovered .tb-overlay {
+  opacity: 1;
+}

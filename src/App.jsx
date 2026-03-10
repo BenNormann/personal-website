@@ -4,6 +4,7 @@ import Navbar from './components/Navbar.jsx';
 import Intro from './components/Intro.jsx';
 import About from './components/About.jsx';
 import Portfolio from './components/Portfolio.jsx';
+import Hobbies from './components/Hobbies.jsx';
 import Contact from './components/Contact.jsx';
 import BackToTop from './components/BackToTop.jsx';
 import Preloader from './components/Preloader.jsx';
@@ -14,6 +15,7 @@ const HomePage = () => (
     <Intro />
     <About />
     <Portfolio />
+    <Hobbies />
     <Contact />
     <BackToTop />
   </>

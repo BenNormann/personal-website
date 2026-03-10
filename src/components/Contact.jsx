@@ -1,5 +1,7 @@
 import React from "react";
 import imageOverlay from "../assets/earth.jpg";
+import ClickSpark from "../reactbits/ClickSpark";
+import ScrollReveal from "../reactbits/ScrollReveal";
 
 const Contact = () => {
   return (
@@ -11,19 +13,20 @@ const Contact = () => {
       <div className="container">
         <div className="row">
           <div className="col-sm-12">
-            <div className="contact-mf">
-              <div id="contact" className="box-shadow-full">
-                <div className="title-box-2 pt-4 pt-md-0">
-                  <h5 className="title-left">Get in Touch</h5>
-                </div>
-                <div className="row">
-                  <div className="col-md-6">
-                    <div>
-                      <form
-                        action="https://formspree.io/f/xwplaewq"
-                        method="POST"
-                        className="contactForm"
-                      >
+            <ScrollReveal>
+              <div className="contact-mf">
+                <div id="contact" className="box-shadow-full">
+                  <div className="title-box-2 pt-4 pt-md-0">
+                    <h5 className="title-left">Get in Touch</h5>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <div>
+                        <form
+                          action="https://formspree.io/f/xwplaewq"
+                          method="POST"
+                          className="contactForm"
+                        >
                         <div id="sendmessage">
                           Your message has been sent. Thank you!
                         </div>
@@ -85,12 +88,14 @@ const Contact = () => {
                             </div>
                           </div>
                           <div className="col-md-12">
-                            <button
-                              type="submit"
-                              className="button button-a button-big button-rouded"
-                            >
-                              Send Message
-                            </button>
+                            <ClickSpark>
+                              <button
+                                type="submit"
+                                className="button button-a button-big button-rouded"
+                              >
+                                Send Message
+                              </button>
+                            </ClickSpark>
                           </div>
                         </div>
                       </form>
@@ -141,9 +146,10 @@ const Contact = () => {
                       </ul>
                     </div>
                   </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>

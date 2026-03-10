@@ -1,6 +1,8 @@
 import React from "react";
 import "./stars.scss";
 import { ReactTyped } from "react-typed";
+import GradientText from "../reactbits/GradientText";
+import ClickSpark from "../reactbits/ClickSpark";
 
 const Intro = () => {
   return (
@@ -13,42 +15,36 @@ const Intro = () => {
       <div className="intro-content display-table">
         <div className="table-cell">
           <div className="container">
-            <h1 className="intro-title mb-4">Ben Normann</h1>
+            <h1 className="intro-title mb-4">
+              <GradientText as="span">Ben Normann</GradientText>
+            </h1>
             <p className="intro-subtitle">
-              <span className="text-slider-items"></span>
               <strong className="text-slider">
-                {/* <ReactTyped
+                <ReactTyped
                   strings={[
+                    "MSCS Student",
                     "Software Engineer",
                     "Web Developer",
-                    "Computer Science Student",
-                    "Economics Student"
+                    "Economics Graduate"
                   ]}
-                  typeSpeed={80}
-                  backDelay={1100}
-                  backSpeed={30}
+                  typeSpeed={70}
+                  backDelay={1400}
+                  backSpeed={40}
                   loop
-                /> */}
-                <a style={{fontSize: "1.8rem"}}>
-                  MSCS Student
-                  <br/>
-                  Software Engineer
-                  <br/>
-                  Web Developer
-                  <br/>
-                  Economics Graduate
-                </a>
+                />
               </strong>
             </p>
             <p className="pt-3">
-              <a
-                className="btn btn-primary btn js-scroll px-4"
-                href="#work"
-                role="button"
-                style={{marginTop: "20px"}}
-              >
-                My Portfolio
-              </a>
+              <ClickSpark>
+                <a
+                  className="btn btn-primary btn js-scroll px-4"
+                  href="#work"
+                  role="button"
+                  style={{ marginTop: "20px" }}
+                >
+                  My Portfolio
+                </a>
+              </ClickSpark>
             </p>
           </div>
         </div>

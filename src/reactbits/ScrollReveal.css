@@ -1,0 +1,35 @@
+.rb-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  filter: blur(0px);
+  transition: opacity 650ms ease, transform 650ms ease, filter 650ms ease;
+}
+
+.rb-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional “word reveal” styling when ScrollReveal is used on text */
+.scroll-reveal {
+  margin: 0;
+}
+
+.scroll-reveal-text {
+  margin: 0;
+}
+
+.scroll-reveal-text .word {
+  display: inline-block;
+  opacity: 0.15;
+  filter: blur(3px);
+  transition: opacity 450ms ease, filter 450ms ease;
+}
+
+.rb-reveal.is-visible .scroll-reveal-text .word {
+  opacity: 1;
+  filter: blur(0px);
+}
+
+
+

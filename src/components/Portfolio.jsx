@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import HoverTilt from "../reactbits/HoverTilt";
+import ScrollReveal from "../reactbits/ScrollReveal";
 
 //import images
 import musicNerd from "../assets/musicNerdLogo.ico";
@@ -27,7 +29,9 @@ const Portfolio = () => {
         </div>
         <div className="row" style={{ display: "flex", flexWrap: "wrap" }}>
           <div className="col-md-4 d-flex">
-            <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
+            <ScrollReveal>
+              <HoverTilt className="w-100">
+                <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
               <Link to="/moneo" className="work-box-link">
                 <div className="work-img">
                   <img src={moneoLogo} alt="Moneo AI Fact-Checking Extension" className="img-fluid" style={{ objectFit: "contain", height: "350px", width: "100%", padding: "60px" }} />
@@ -49,9 +53,13 @@ const Portfolio = () => {
                 </div>
               </Link>
             </div>
+              </HoverTilt>
+            </ScrollReveal>
           </div>
           <div className="col-md-4 d-flex">
-            <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
+            <ScrollReveal>
+              <HoverTilt className="w-100">
+                <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
               <Link to="/luxxle" className="work-box-link">
                 <div className="work-img">
                   <img src={luxxle} alt="Luxxle Web Explorer/Browser" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
@@ -75,9 +83,13 @@ const Portfolio = () => {
                 </div>
               </Link>
             </div>
+              </HoverTilt>
+            </ScrollReveal>
           </div>
           <div className="col-md-4 d-flex">
-            <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
+            <ScrollReveal>
+              <HoverTilt className="w-100">
+                <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
               <Link to="/killtone" className="work-box-link">
                 <div className="work-img">
                   <img src={killtone} alt="KT Logo" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
@@ -100,9 +112,13 @@ const Portfolio = () => {
                 </div>
               </Link>
             </div>
+              </HoverTilt>
+            </ScrollReveal>
           </div>
           <div className="col-md-4 d-flex">
-            <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
+            <ScrollReveal>
+              <HoverTilt className="w-100">
+                <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
               <a href="https://www.musicnerd.xyz/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
                 <div className="work-img">
                   <img src={musicNerd} alt="MusicNerd App" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
@@ -124,9 +140,13 @@ const Portfolio = () => {
                 </div>
               </a>
             </div>
+              </HoverTilt>
+            </ScrollReveal>
           </div>
           <div className="col-md-4 d-flex">
-            <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
+            <ScrollReveal>
+              <HoverTilt className="w-100">
+                <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
               <Link to="/if-predictor" className="work-box-link">
                 <div className="work-img">
                   <img src={ifPredictor} alt="If-Statement Condition Predictor" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
@@ -148,9 +168,13 @@ const Portfolio = () => {
                 </div>
               </Link>
             </div>
+              </HoverTilt>
+            </ScrollReveal>
           </div>
           <div className="col-md-4 d-flex">
-            <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
+            <ScrollReveal>
+              <HoverTilt className="w-100">
+                <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
               <Link to="/commercial-realestate-crawler" className="work-box-link">
                 <div className="work-img">
                   <img src={commRECrawler} alt="Commercial Real Estate Crawler" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
@@ -172,9 +196,13 @@ const Portfolio = () => {
                 </div>
               </Link>
             </div>
+              </HoverTilt>
+            </ScrollReveal>
           </div>
           <div className="col-md-4 d-flex">
-            <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
+            <ScrollReveal>
+              <HoverTilt className="w-100">
+                <div className="work-box w-100" style={{ display: "flex", flexDirection: "column" }}>
               <Link to="/valentines-day-card" className="work-box-link">
                 <div className="work-img">
                   <img src={valentine} alt="Valentine's Day Card Web App" className="img-fluid" style={{ objectFit: "cover", height: "350px", width: "100%" }} />
@@ -196,6 +224,8 @@ const Portfolio = () => {
                 </div>
               </Link>
             </div>
+              </HoverTilt>
+            </ScrollReveal>
           </div>
         </div>
       </div>

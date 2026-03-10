@@ -214,6 +214,11 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li className="nav-item">
+                  <a className="nav-link js-scroll" href="#hobbies">
+                    Hobbies
+                  </a>
+                </li>
+                <li className="nav-item">
                   <a className="nav-link js-scroll" href="#contact">
                     Contact
                   </a>

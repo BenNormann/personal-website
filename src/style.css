@@ -1078,9 +1078,18 @@ footer .copyright {
   border-radius: 9999px;
 }
 
-/* Body */
-.expo-body {
+/* Body row: side-by-side layout */
+.expo-body-row {
   margin-bottom: 3rem;
+  align-items: flex-start;
+}
+
+.expo-body-row-single .expo-text-col {
+  max-width: 100%;
+}
+
+.expo-media-col {
+  padding-left: 1.5rem;
 }
 
 .expo-section-label {
@@ -1167,11 +1176,46 @@ footer .copyright {
   box-shadow: 0 0 20px rgba(157, 107, 232, 0.5);
 }
 
-/* Media section */
-.expo-media-section {
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 2.5rem;
-  margin-bottom: 2rem;
+/* Media column - primary video/image (modest size) */
+.expo-media-primary {
+  max-height: 300px;
+}
+
+.expo-video-aspect {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-height: 280px;
+}
+
+.expo-video-aspect iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.expo-primary-image {
+  max-height: 280px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.expo-primary-image:hover {
+  border-color: rgba(119, 50, 184, 0.5);
+  transform: translateY(-2px);
+}
+
+.expo-primary-image img {
+  width: 100%;
+  height: 100%;
+  max-height: 280px;
+  object-fit: contain;
+  display: block;
 }
 
 .expo-video-label {
@@ -1183,12 +1227,6 @@ footer .copyright {
   margin-bottom: 0.75rem;
 }
 
-.expo-video-wrap {
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-}
-
 .expo-video-error {
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.04);
@@ -1198,10 +1236,10 @@ footer .copyright {
   color: var(--text-secondary);
 }
 
-.expo-image-grid {
+.expo-image-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.5rem;
   margin-top: 0.75rem;
 }
 
@@ -1211,6 +1249,7 @@ footer .copyright {
   border: 1px solid var(--border-subtle);
   cursor: pointer;
   transition: border-color 0.25s ease, transform 0.25s ease;
+  aspect-ratio: 4 / 3;
 }
 
 .expo-image-thumb:hover {
@@ -1220,7 +1259,7 @@ footer .copyright {
 
 .expo-image-thumb img {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
@@ -1241,8 +1280,22 @@ footer .copyright {
     font-size: 1.8rem;
   }
 
-  .expo-image-grid {
-    grid-template-columns: 1fr;
+  .expo-body-row {
+    flex-direction: column;
+  }
+
+  .expo-media-col {
+    padding-left: 0;
+    order: 2;
+  }
+
+  .expo-text-col {
+    order: 1;
+  }
+
+  .expo-image-gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
   }
 }
 

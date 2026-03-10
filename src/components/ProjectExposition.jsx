@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Particles from "../reactbits/Particles";
+import ClickSpark from "../reactbits/ClickSpark";
+import TiltedButton from "../reactbits/TiltedButton";
 import luxxleLogo from "../assets/LuxxleLogoHD.png";
 import killtoneLogo from "../assets/KilltoneLogo.png";
 import ifPredictorImg from "../assets/ifPredictor.png";
@@ -240,16 +242,15 @@ const ProjectExposition = () => {
             </div>
           </div>
 
-          {/* ── Main content: description (left) + features + links (right) ── */}
-          <div className="row expo-body">
-            <div className="col-lg-7 col-md-6 mb-4">
+          {/* ── Side-by-side: About + Features (left) | Media + Gallery (right) ── */}
+          <div className={`row expo-body-row ${hasMedia ? "" : "expo-body-row-single"}`}>
+            {/* Left column: About, Features, links */}
+            <div className={hasMedia ? "col-lg-6 col-md-6 mb-4 mb-lg-0 expo-text-col" : "col-12 mb-4"}>
               <h4 className="expo-section-label">About the Project</h4>
               {project.description.split("\n\n").map((para, i) => (
                 <p key={i} className="expo-paragraph">{para.trim()}</p>
               ))}
-            </div>
 
-            <div className="col-lg-5 col-md-6 mb-4 ps-md-5">
               <h4 className="expo-section-label">Key Features</h4>
               <ul className="feature-list mb-4">
                 {project.features.map((feature, i) => (
@@ -257,7 +258,6 @@ const ProjectExposition = () => {
                 ))}
               </ul>
 
-              {/* GitHub links */}
               {project.github && (
                 <div className="expo-links">
                   {Array.isArray(project.github) ? (
@@ -285,7 +285,6 @@ const ProjectExposition = () => {
                 </div>
               )}
 
-              {/* Live links */}
               {project.liveLinks && (
                 <div className="expo-links mt-2">
                   {project.liveLinks.map((link, i) => (
@@ -302,64 +301,74 @@ const ProjectExposition = () => {
                 </div>
               )}
             </div>
-          </div>
 
-          {/* ── Media section ── */}
-          {hasMedia && (
-            <div className="expo-media-section">
-              <h4 className="expo-section-label mb-4">Media</h4>
+            {/* Right column: Media + Gallery (only when hasMedia) */}
+            {hasMedia && (
+              <div className="col-lg-6 col-md-6 expo-media-col">
+                <h4 className="expo-section-label">Media</h4>
 
-              {/* Multiple videos */}
-              {project.videos &&
-                project.videos.map((video, i) => (
-                  <div key={i} className="expo-video-wrap mb-4">
-                    <p className="expo-video-label">{video.title}</p>
-                    <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
-                      <iframe
-                        src={video.url}
-                        frameBorder="0"
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                        title={video.title}
-                      />
+                {/* Multiple videos */}
+                {project.videos &&
+                  project.videos.map((video, i) => (
+                    <div key={i} className="expo-media-primary expo-video-wrap mb-3">
+                      <p className="expo-video-label">{video.title}</p>
+                      <div className="expo-video-aspect">
+                        <iframe
+                          src={video.url}
+                          frameBorder="0"
+                          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                          title={video.title}
+                        />
+                      </div>
                     </div>
+                  ))}
+
+                {/* Single video */}
+                {project.video && !project.videos && (
+                  <div className="expo-media-primary expo-video-wrap mb-3">
+                    <p className="expo-video-label">Demo Video</p>
+                    {!videoError ? (
+                      <div className="expo-video-aspect">
+                        <iframe
+                          src={project.video}
+                          title={`${project.title} Demo`}
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          onLoad={() => {
+                            if (window.videoErrorTimeout) clearTimeout(window.videoErrorTimeout);
+                          }}
+                          onError={() => setVideoError(true)}
+                          sandbox="allow-scripts allow-same-origin allow-presentation"
+                          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                        />
+                      </div>
+                    ) : (
+                      <div className="expo-video-error">
+                        <p>Video unavailable. This demo is currently private or requires authentication.</p>
+                      </div>
+                    )}
                   </div>
-                ))}
+                )}
 
-              {/* Single video */}
-              {project.video && !project.videos && (
-                <div className="expo-video-wrap mb-4">
-                  <p className="expo-video-label">Demo Video</p>
-                  {!videoError ? (
-                    <iframe
-                      width="100%"
-                      height="400"
-                      src={project.video}
-                      title={`${project.title} Demo`}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      onLoad={() => {
-                        if (window.videoErrorTimeout) clearTimeout(window.videoErrorTimeout);
-                      }}
-                      onError={() => setVideoError(true)}
-                      sandbox="allow-scripts allow-same-origin allow-presentation"
-                      style={{ border: "none" }}
+                {/* Primary image (when no video, or alongside video for projects like Luxxle) */}
+                {project.images && project.images.length > 0 && !project.video && !project.videos && (
+                  <div
+                    className="expo-media-primary expo-primary-image mb-3"
+                    onClick={() => openModal(project.images[0])}
+                  >
+                    <img
+                      src={project.images[0]}
+                      alt={`${project.title} screenshot`}
                     />
-                  ) : (
-                    <div className="expo-video-error">
-                      <p>Video unavailable. This demo is currently private or requires authentication.</p>
-                    </div>
-                  )}
-                </div>
-              )}
+                  </div>
+                )}
 
-              {/* Image grid */}
-              {project.images && project.images.length > 0 && (
-                <>
-                  <p className="expo-video-label">Screenshots</p>
-                  <div className="expo-image-grid">
-                    {project.images.map((image, i) => (
+                {/* Thumbnail gallery: all images when video exists, else images 2+ (first is primary above) */}
+                {project.images && project.images.length > 0 && (
+                  <div className="expo-image-gallery">
+                    {(project.video || project.videos ? project.images : project.images.slice(1)).map((image, i) => (
                       <div
                         key={i}
                         className="expo-image-thumb"
@@ -368,36 +377,36 @@ const ProjectExposition = () => {
                         <img
                           src={image}
                           alt={`${project.title} screenshot ${i + 1}`}
-                          className="img-fluid"
                         />
                       </div>
                     ))}
                   </div>
-                </>
-              )}
-            </div>
-          )}
+                )}
+              </div>
+            )}
+          </div>
 
           {/* ── Back button ── */}
           <div className="text-center mt-5 pb-5">
-            <button
-              className="btn btn-primary"
-              onClick={() => {
-                navigate("/");
-                setTimeout(() => {
-                  const target = document.querySelector("#work");
-                  if (target) {
-                    const navHeight = document.querySelector("#mainNav")?.clientHeight || 72;
-                    window.scrollTo({
-                      top: target.getBoundingClientRect().top + window.pageYOffset - navHeight + 5,
-                      behavior: "smooth",
-                    });
-                  }
-                }, 100);
-              }}
-            >
-              ← Back to Portfolio
-            </button>
+            <ClickSpark>
+              <TiltedButton
+                onClick={() => {
+                  navigate("/");
+                  setTimeout(() => {
+                    const target = document.querySelector("#work");
+                    if (target) {
+                      const navHeight = document.querySelector("#mainNav")?.clientHeight || 72;
+                      window.scrollTo({
+                        top: target.getBoundingClientRect().top + window.pageYOffset - navHeight + 5,
+                        behavior: "smooth",
+                      });
+                    }
+                  }, 100);
+                }}
+              >
+                ← Back to Portfolio
+              </TiltedButton>
+            </ClickSpark>
           </div>
         </div>
       </div>

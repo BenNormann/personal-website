@@ -108,13 +108,8 @@ const Contact = () => {
                       </p>
                       <ul className="list-ico">
                         <li>
-                          <a href="tel:+12064722782" style={{ color: 'inherit', textDecoration: 'none' }}>
-                            <span className="ion-ios-telephone"></span> (206) 472-2782
-                          </a>
-                        </li>
-                        <li>
-                          <a href="mailto:benjaminellisnormann@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>
-                            <span className="ion-email"></span> benjaminellisnormann@gmail.com
+                          <a href="mailto:benosmailbox@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>
+                            <span className="ion-email"></span> benosmailbox@gmail.com
                           </a>
                         </li>
                       </ul>
@@ -158,7 +153,7 @@ const Contact = () => {
           <div className="row">
             <div className="col-sm-12">
               <div className="copyright-box">
-                <p className="copyright">&copy; 2025 <strong>Ben Normann</strong></p>
+                <p className="copyright">&copy; 2026 <strong>Ben Normann</strong></p>
               </div>
             </div>
           </div>

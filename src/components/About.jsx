@@ -28,7 +28,7 @@ const About = () => {
     {
       id: "third-p-about",
       content:
-        "Outside of tech, I’m an Eagle Scout, a creative builder, and a lifelong explorer — whether that’s restoring vintage cars, composing music, traveling, or getting outside for tennis, skiing, hiking, or boating. I bring leadership, adaptability, and a hands-on, solution-oriented mindset to everything I do."
+        "Outside of tech, I’m an Eagle Scout, a creative builder, and a lifelong explorer - whether that’s restoring vintage cars, composing music, traveling, or getting outside for tennis, skiing, hiking, or boating. I bring leadership, adaptability, and a hands-on, solution-oriented mindset to everything I do."
     }
   ]);
 

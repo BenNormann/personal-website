@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import ExpositionSpine from "./ExpositionSpine";
 import ClickSpark from "../reactbits/ClickSpark";
@@ -188,6 +188,7 @@ const CarExposition = ({ carId }) => {
 const MusicExposition = () => {
   const data = musicExposition;
   const [modalImage, setModalImage] = useState(null);
+  const introParagraphs = Array.isArray(data.intro) ? data.intro : [data.intro].filter(Boolean);
 
   return (
     <>
@@ -197,6 +198,16 @@ const MusicExposition = () => {
           <span className="expo-badge">{data.subtitle}</span>
         </div>
       </div>
+
+      {introParagraphs.length > 0 && (
+        <div className="mb-4">
+          {introParagraphs.map((para, i) => (
+            <p key={i} className="expo-paragraph">
+              {para}
+            </p>
+          ))}
+        </div>
+      )}
 
       {data.imageTextBlocks?.map((block, i) => (
         <div key={i} data-section-id={`section-${i}`}>
@@ -210,17 +221,19 @@ const MusicExposition = () => {
         </div>
       ))}
 
-      <div className="mb-4">
+      <div className="mb-4" data-section-id="listen">
         <h4 className="expo-section-label">Listen</h4>
         <div className="expo-links">
-          <a
-            href={data.spotifyProfile}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn expo-btn-primary mb-2"
-          >
-            <i className="fa fa-spotify" aria-hidden="true" /> Spotify Profile
-          </a>
+          {data.spotifyProfile && (
+            <a
+              href={data.spotifyProfile}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn expo-btn-primary mb-2"
+            >
+              <i className="fa fa-spotify" aria-hidden="true" /> Spotify
+            </a>
+          )}
           <a
             href={data.youtubeChannel}
             target="_blank"
@@ -232,28 +245,6 @@ const MusicExposition = () => {
         </div>
       </div>
 
-      {data.spotifyPlaylistIds && data.spotifyPlaylistIds.length > 0 && (
-        <div className="mb-4">
-          <h4 className="expo-section-label">Playlists</h4>
-          <div className="personal-expo-spotify-embeds">
-            {data.spotifyPlaylistIds.map((id) => (
-              <iframe
-                key={id}
-                src={`https://open.spotify.com/embed/playlist/${id}`}
-                width="100%"
-                height="152"
-                frameBorder="0"
-                allowFullScreen
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-                title="Spotify Playlist"
-                className="personal-expo-spotify-embed"
-              />
-            ))}
-          </div>
-        </div>
-      )}
-
       {data.youtubeVideoId && (
         <div className="mb-4">
           <h4 className="expo-section-label">Featured</h4>
@@ -262,8 +253,7 @@ const MusicExposition = () => {
               src={`https://www.youtube.com/embed/${data.youtubeVideoId}`}
               title="YouTube"
               frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
               style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
             />
           </div>
@@ -280,6 +270,7 @@ const MusicExposition = () => {
 const EverythingElseExposition = () => {
   const data = everythingElseExposition;
   const [modalImage, setModalImage] = useState(null);
+  const introParagraphs = Array.isArray(data.intro) ? data.intro : [data.intro].filter(Boolean);
 
   return (
     <>
@@ -290,9 +281,30 @@ const EverythingElseExposition = () => {
         </div>
       </div>
 
-      <div className="mb-4">
-        <p className="expo-paragraph">{data.intro}</p>
-      </div>
+      {introParagraphs.length > 0 && (
+        <div className="mb-4">
+          {introParagraphs.map((para, i) => (
+            <p key={i} className="expo-paragraph">
+              {para}
+            </p>
+          ))}
+        </div>
+      )}
+
+      {data.jdp && (
+        <div className="mb-4 p-4" style={{ background: "rgba(255,255,255,0.04)", borderRadius: "12px", border: "1px solid var(--border-subtle)" }}>
+          <h4 className="expo-section-label">{data.jdp.title}</h4>
+          <p className="expo-paragraph">{data.jdp.description}</p>
+          <a
+            href={data.jdp.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn expo-btn-ghost"
+          >
+            Learn more (William & Mary)
+          </a>
+        </div>
+      )}
 
       {data.eagleProject && (
         <div className="mb-4 p-4" style={{ background: "rgba(255,255,255,0.04)", borderRadius: "12px", border: "1px solid var(--border-subtle)" }}>
@@ -344,6 +356,14 @@ const PersonalExposition = () => {
   const location = useLocation();
   const path = location.pathname;
 
+  // Lock body scroll so only .project-exposition scrolls (fixes double scrollbar with video)
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
   // /cars/gtx, /cars/rx7, /cars/s2000
   const carMatch = path.match(/^\/cars\/(gtx|rx7|s2000)$/);
   if (carMatch) {
@@ -390,6 +410,7 @@ const PersonalExposition = () => {
     const musicSections = [
       { id: "hero", title: musicExposition.title },
       ...(musicExposition.imageTextBlocks || []).map((b, i) => ({ id: `section-${i}`, title: b.title || b.alt })),
+      { id: "listen", title: "Listen" },
     ];
     return (
       <section className="project-exposition route">

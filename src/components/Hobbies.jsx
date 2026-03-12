@@ -49,7 +49,7 @@ const Hobbies = () => {
               <ScrollReveal>
                 <h3 className="title-a">Beyond the Code</h3>
                 <p className="subtitle-a">
-                  Life outside of tech — the adventures, pursuits, and passions that keep me grounded
+                  Life outside of tech - the adventures, pursuits, and passions that keep me grounded
                 </p>
                 <div className="line-mf"></div>
               </ScrollReveal>

@@ -125,7 +125,7 @@ This project demonstrates full-stack web development skills, combining modern Re
     github: "https://github.com/BenNormann/valentines-website-template",
   },
   moneo: {
-    title: "Moneo — AI Fact-Checking Browser Extension",
+    title: "Moneo - AI Fact-Checking Browser Extension",
     logo: moneoLogo,
     technologies: ["JavaScript", "Chrome Extension API", "OpenAI GPT-4", "Web Scraping"],
     description: `An ambitious 24-hour hackathon project that creates an AI-powered fact-checking browser extension. Moneo automatically analyzes news articles, extracts factual claims, and scores them for credibility using multi-dimensional verification across AI analysis, academic sources, and cross-spectrum web validation.
@@ -334,8 +334,7 @@ const ProjectExposition = () => {
                           src={project.video}
                           title={`${project.title} Demo`}
                           frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                           onLoad={() => {
                             if (window.videoErrorTimeout) clearTimeout(window.videoErrorTimeout);
                           }}

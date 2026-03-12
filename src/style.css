@@ -1043,7 +1043,7 @@ footer .copyright {
   }
 
   .blog-wrapper .article-title {
-    font-size: 1.9rem;
+    font-size: 2.2rem;
   }
 
   .box-comments .list-comments .comment-author {
@@ -1079,8 +1079,10 @@ footer .copyright {
 /* Project Exposition Styles */
 .project-exposition {
   min-height: 100vh;
+  height: 100vh;
   color: #fff;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .expo-content-layer {
@@ -1183,7 +1185,7 @@ footer .copyright {
 }
 
 .expo-hero-title {
-  font-size: 2.4rem;
+  font-size: 2.85rem;
   font-weight: 700;
   color: var(--text-primary);
   margin: 0 0 0.6rem;
@@ -1199,7 +1201,7 @@ footer .copyright {
 .expo-badge {
   display: inline-block;
   padding: 0.25rem 0.75rem;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1224,7 +1226,7 @@ footer .copyright {
 }
 
 .expo-section-label {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1235,7 +1237,7 @@ footer .copyright {
 .expo-paragraph {
   color: var(--text-body);
   line-height: 1.75;
-  font-size: 1rem;
+  font-size: 1.125rem;
   margin-bottom: 1.2rem;
 }
 
@@ -1250,7 +1252,7 @@ footer .copyright {
   margin-bottom: 0.8rem;
   padding-left: 1.5rem;
   position: relative;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   line-height: 1.6;
 }
 
@@ -1275,7 +1277,7 @@ footer .copyright {
   color: var(--text-primary);
   border-radius: 9999px;
   padding: 0.45rem 1.2rem;
-  font-size: 0.88rem;
+  font-size: 0.98rem;
   font-weight: 600;
   transition: all 0.25s ease;
   background: transparent;
@@ -1294,7 +1296,7 @@ footer .copyright {
   border: none;
   border-radius: 9999px;
   padding: 0.45rem 1.2rem;
-  font-size: 0.88rem;
+  font-size: 0.98rem;
   font-weight: 600;
   transition: all 0.25s ease;
   box-shadow: 0 0 14px rgba(119, 50, 184, 0.4);
@@ -1312,10 +1314,16 @@ footer .copyright {
   max-height: 300px;
 }
 
+.expo-video-wrap {
+  overflow: hidden;
+  max-width: 100%;
+}
+
 .expo-video-aspect {
   position: relative;
   aspect-ratio: 16 / 9;
   max-height: 280px;
+  overflow: hidden;
 }
 
 .expo-video-aspect iframe {
@@ -1350,7 +1358,7 @@ footer .copyright {
 }
 
 .expo-video-label {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1408,7 +1416,7 @@ footer .copyright {
   }
 
   .expo-hero-title {
-    font-size: 1.8rem;
+    font-size: 2.1rem;
   }
 
   .expo-body-row {
@@ -1441,21 +1449,10 @@ footer .copyright {
   gap: 0.75rem;
 }
 
-.personal-expo-spotify-embeds {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.personal-expo-spotify-embed {
-  border-radius: 12px;
-  min-height: 152px;
-}
-
 .expo-video-native {
   position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
+  aspect-ratio: 16 / 9;
+  max-height: 280px;
   overflow: hidden;
 }
 
@@ -1465,6 +1462,7 @@ footer .copyright {
   left: 0;
   width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 
 /* ImageText block — blog-style image + blurb, alternating layout */
@@ -1518,7 +1516,7 @@ footer .copyright {
 }
 
 .image-text-content p {
-  font-size: 1.1rem;
+  font-size: 1.125rem;
   line-height: 1.75;
   color: var(--text-body);
   margin: 0 0 1rem;

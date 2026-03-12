@@ -1106,31 +1106,10 @@ footer .copyright {
   position: relative;
   min-height: 200px;
   z-index: 1;
-  /* Gradient extends from left edge; clean fade to transparent */
-  background: linear-gradient(
-    90deg,
-    rgba(119, 50, 184, 0.18) 0%,
-    rgba(119, 50, 184, 0.08) 40%,
-    transparent 100%
-  );
+  cursor: default;
+  background: none;
 }
 
-/* Extend gradient to true viewport edge when inside padded parent */
-.project-exposition .expo-spine-zone::before {
-  content: "";
-  position: absolute;
-  right: 100%;
-  top: 0;
-  bottom: 0;
-  width: 120px;
-  background: linear-gradient(
-    90deg,
-    rgba(119, 50, 184, 0.18) 0%,
-    rgba(119, 50, 184, 0.06) 60%,
-    transparent 100%
-  );
-  pointer-events: none;
-}
 
 .expo-spine-svg {
   position: absolute;
@@ -1141,54 +1120,35 @@ footer .copyright {
   pointer-events: none;
 }
 
+/* Secondary lines (left of main spine) - layered Threads-like effect */
+.expo-spine-secondary {
+  stroke: #7732b8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  pointer-events: none;
+}
+
 .expo-spine-line {
+  stroke: #7732b8;
   stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
-  opacity: 0.95;
-  animation: spineFlowPulse 4s ease-in-out infinite;
 }
 
 .expo-spine-branch {
+  stroke: #7732b8;
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
   opacity: 0.7;
-  animation: branchFlowPulse 3.5s ease-in-out infinite;
-}
-
-.expo-spine-branch:nth-child(odd) {
-  animation-delay: 0.5s;
-}
-
-.expo-spine-branch:nth-child(3n) {
-  animation-delay: 1s;
 }
 
 .expo-content-wrapper {
   flex: 1;
   min-width: 0;
-}
-
-/* Gentle opacity pulse for depth */
-@keyframes spineFlowPulse {
-  0%, 100% {
-    opacity: 0.82;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes branchFlowPulse {
-  0%, 100% {
-    opacity: 0.55;
-  }
-  50% {
-    opacity: 0.85;
-  }
 }
 
 @media (max-width: 768px) {

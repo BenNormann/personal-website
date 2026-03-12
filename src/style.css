@@ -25,6 +25,7 @@ html {
 body {
   background: transparent !important;
   color: var(--text-body) !important;
+  font-size: 1.0625rem;
 }
 
 /* Fluid container: smooth margins across all viewport sizes, no discrete breakpoint jumps.
@@ -33,7 +34,7 @@ body {
   --container-padding-x: clamp(1.5rem, 5.5vw, 5.5rem);
   padding-left: var(--container-padding-x);
   padding-right: var(--container-padding-x);
-  max-width: min(1320px, calc(100vw - 2 * var(--container-padding-x)));
+  max-width: min(1580px, calc(100vw - 2 * var(--container-padding-x)));
   margin-left: auto;
   margin-right: auto;
 }
@@ -56,7 +57,7 @@ h6 {
 }
 
 .lead {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   font-weight: 300;
   text-align: justify;
 }
@@ -102,13 +103,13 @@ a:hover {
 }
 
 .display-5 {
-  font-size: 2.5rem;
+  font-size: 2.85rem;
   font-weight: 300;
   line-height: 1.1;
 }
 
 .display-6 {
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 300;
   line-height: 1.1;
 }
@@ -177,7 +178,7 @@ a:hover {
 .title-s {
   font-weight: 600;
   color: #1e1e1e;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
 }
 
 /* Title A */
@@ -187,7 +188,7 @@ a:hover {
 }
 
 .title-a {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -211,7 +212,7 @@ a:hover {
 }
 
 .title-left {
-  font-size: 2rem;
+  font-size: 2.35rem;
   position: relative;
 }
 
@@ -833,12 +834,12 @@ a:hover {
 }
 
 .work-content .w-title {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 
 .work-content .w-more {
   color: var(--text-secondary);
-  font-size: .8rem;
+  font-size: .95rem;
   text-align: left;
 }
 
@@ -861,7 +862,7 @@ a:hover {
 }
 
 .w-title {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
 }
 
 /* Contact */
@@ -1042,7 +1043,7 @@ footer .copyright {
   }
 
   .testimonial {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 300;
     text-align: justify;
     font-style: italic;
@@ -1056,11 +1057,11 @@ footer .copyright {
   }
 
   .blog-wrapper .article-title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
 
   .box-comments .list-comments .comment-author {
-    font-size: 1.5rem;
+    font-size: 1.65rem;
   }
 }
 
@@ -1201,7 +1202,7 @@ footer .copyright {
 }
 
 .expo-hero-title {
-  font-size: 2.85rem;
+  font-size: 3.1rem;
   font-weight: 700;
   color: var(--text-primary);
   margin: 0 0 0.6rem;
@@ -1217,7 +1218,7 @@ footer .copyright {
 .expo-badge {
   display: inline-block;
   padding: 0.25rem 0.75rem;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1242,7 +1243,7 @@ footer .copyright {
 }
 
 .expo-section-label {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1253,7 +1254,7 @@ footer .copyright {
 .expo-paragraph {
   color: var(--text-body);
   line-height: 1.75;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   margin-bottom: 1.2rem;
 }
 
@@ -1268,7 +1269,7 @@ footer .copyright {
   margin-bottom: 0.8rem;
   padding-left: 1.5rem;
   position: relative;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   line-height: 1.6;
 }
 
@@ -1293,7 +1294,7 @@ footer .copyright {
   color: var(--text-primary);
   border-radius: 9999px;
   padding: 0.45rem 1.2rem;
-  font-size: 0.98rem;
+  font-size: 1.05rem;
   font-weight: 600;
   transition: all 0.25s ease;
   background: transparent;
@@ -1312,7 +1313,7 @@ footer .copyright {
   border: none;
   border-radius: 9999px;
   padding: 0.45rem 1.2rem;
-  font-size: 0.98rem;
+  font-size: 1.05rem;
   font-weight: 600;
   transition: all 0.25s ease;
   box-shadow: 0 0 14px rgba(119, 50, 184, 0.4);
@@ -1374,7 +1375,7 @@ footer .copyright {
 }
 
 .expo-video-label {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1532,7 +1533,7 @@ footer .copyright {
 }
 
 .image-text-content p {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   line-height: 1.75;
   color: var(--text-body);
   margin: 0 0 1rem;
@@ -1620,7 +1621,7 @@ footer .copyright {
 }
 
 .hobby-card-title {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 0.25rem;
@@ -1628,7 +1629,7 @@ footer .copyright {
 }
 
 .hobby-card-subtitle {
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1637,7 +1638,7 @@ footer .copyright {
 }
 
 .hobby-card-desc {
-  font-size: 0.88rem;
+  font-size: 1rem;
   line-height: 1.65;
   color: rgba(200, 208, 224, 0.85);
   margin-bottom: 0;

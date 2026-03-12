@@ -101,10 +101,11 @@ const Navbar = () => {
     const handleNavLinkClick = (e) => {
       if (!isHomePage) return;
 
-      const { target } = e;
-      if (target.classList.contains('js-scroll') && target.hash) {
+      // currentTarget is the element with the listener (the .js-scroll link)
+      const link = e.currentTarget;
+      if (link.classList.contains('js-scroll') && link.hash) {
         e.preventDefault();
-        const targetElement = document.querySelector(target.hash);
+        const targetElement = document.querySelector(link.hash);
         if (targetElement) {
           const navHeight = navbarRef.current?.clientHeight || 72;
           const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;

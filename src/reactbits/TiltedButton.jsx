@@ -61,7 +61,7 @@ export default function TiltedButton({
   return (
     <span
       ref={wrapRef}
-      className={`tb-wrap ${className}`.trim()}
+      className="tb-wrap"
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -71,7 +71,7 @@ export default function TiltedButton({
         href={href}
         onClick={onClick}
         role={role}
-        className={`tb-inner ${isHovered ? "is-hovered" : ""}`}
+        className={`tb-inner ${isHovered ? "is-hovered" : ""} ${className}`.trim()}
         {...props}
       >
         <span className="tb-label">{children}</span>

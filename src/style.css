@@ -11,6 +11,8 @@ GENERAL STYLING
   --text-primary: #f0f4ff;
   --text-secondary: #8899aa;
   --text-body: #c8d0e0;
+  /* Fluid container side spacing: smoothly interpolates across viewport, no breakpoint jumps */
+  --container-padding-x: clamp(1.5rem, 5.5vw, 5.5rem);
 }
 
 /* The gradient background lives on <html> so a z-index:-1 fixed element
@@ -23,6 +25,17 @@ html {
 body {
   background: transparent !important;
   color: var(--text-body) !important;
+}
+
+/* Fluid container: smooth margins across all viewport sizes, no discrete breakpoint jumps.
+   Overrides Bootstrap's stepwise max-width at 1400px (xl→xxl) and other breakpoints. */
+.container {
+  --container-padding-x: clamp(1.5rem, 5.5vw, 5.5rem);
+  padding-left: var(--container-padding-x);
+  padding-right: var(--container-padding-x);
+  max-width: min(1320px, calc(100vw - 2 * var(--container-padding-x)));
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Fixed particle background layer — behind all page content */
@@ -1088,7 +1101,12 @@ footer .copyright {
 .expo-content-layer {
   position: relative;
   z-index: 2;
-  padding: 80px 0 0;
+  padding: 140px 0 0rem;
+  margin-bottom: 0;
+}
+
+.expo-content-layer .expo-content-wrapper .container > *:last-child {
+  margin-bottom: 0;
 }
 
 /* Exposition Spine Layout */
@@ -1096,17 +1114,15 @@ footer .copyright {
   display: flex;
   align-items: stretch;
   gap: 0;
-  min-height: min(100%, 100vh);
-  /* Break out to viewport left edge (covers typical container padding) */
-  margin-left: -15px;
-  padding-left: 15px;
+  /* Break out to container content edge; matches fluid --container-padding-x */
+  margin-left: calc(-1 * var(--container-padding-x, 1rem));
+  padding-left: var(--container-padding-x, 1rem);
 }
 
 .expo-spine-zone {
   flex-shrink: 0;
   width: 100px;
   position: relative;
-  min-height: 200px;
   z-index: 1;
   cursor: default;
   background: none;

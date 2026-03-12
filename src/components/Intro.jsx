@@ -28,13 +28,13 @@ const Intro = () => {
                 />
               </strong>
             </p>
-            <p className="pt-3" style={{ marginTop: "20px" }}>
+            <div className="pt-3" style={{ marginTop: "20px" }}>
               <ClickSpark>
                 <TiltedButton href="#work" className="js-scroll">
                   My Portfolio &nbsp;→
                 </TiltedButton>
               </ClickSpark>
-            </p>
+            </div>
           </div>
         </div>
       </div>

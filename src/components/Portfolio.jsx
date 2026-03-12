@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import HoverTilt from "../reactbits/HoverTilt";
 import ScrollReveal from "../reactbits/ScrollReveal";
+import ExpositionCard from "./ExpositionCard";
 
 import musicNerd from "../assets/musicNerdLogo.ico";
 import ifPredictor from "../assets/ifPredictor.png";
@@ -91,45 +91,6 @@ const projects = [
   },
 ];
 
-const ProjectCard = ({ project }) => {
-  const inner = (
-    <>
-      <div className="work-img">
-        <img src={project.img} alt={project.alt} className="img-fluid" style={project.imgStyle} />
-      </div>
-      <div className="work-content" style={{ flex: "1 0 auto" }}>
-        <div className="row">
-          <div className="col-sm-12">
-            <h2 className="w-title">{project.title}</h2>
-            <div className="w-more">
-              <span className="w-ctegory">{project.category}</span>
-              <p className="mt-2">{project.description}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-
-  return (
-    <div className="work-box w-100 h-100" style={{ display: "flex", flexDirection: "column" }}>
-      {project.href ? (
-        <a
-          href={project.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ display: "flex", flexDirection: "column", height: "100%" }}
-        >
-          {inner}
-        </a>
-      ) : (
-        <Link to={project.to} className="work-box-link">
-          {inner}
-        </Link>
-      )}
-    </div>
-  );
-};
 
 const Portfolio = () => {
   return (
@@ -151,7 +112,17 @@ const Portfolio = () => {
             <div key={project.id} className="col-md-4 d-flex mb-4">
               <ScrollReveal containerClassName="h-100 w-100">
                 <HoverTilt className="w-100" containerHeight="100%">
-                  <ProjectCard project={project} />
+                  <ExpositionCard
+                    title={project.title}
+                    category={project.category}
+                    img={project.img}
+                    alt={project.alt}
+                    to={project.to}
+                    href={project.href}
+                    imageCoversCard={false}
+                    imgStyle={project.imgStyle}
+                    description={project.description}
+                  />
                 </HoverTilt>
               </ScrollReveal>
             </div>

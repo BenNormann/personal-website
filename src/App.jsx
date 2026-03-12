@@ -9,6 +9,7 @@ import Contact from './components/Contact.jsx';
 import BackToTop from './components/BackToTop.jsx';
 import Preloader from './components/Preloader.jsx';
 import ProjectExposition from './components/ProjectExposition.jsx';
+import PersonalExposition from './components/PersonalExposition.jsx';
 import Particles from './reactbits/Particles.jsx';
 
 // Particles background for the home page.
@@ -86,6 +87,10 @@ const App = () => {
         <Route path="/commercial-realestate-crawler" element={<ProjectExposition />} />
         <Route path="/valentines-day-card" element={<ProjectExposition />} />
         <Route path="/moneo" element={<ProjectExposition />} />
+        <Route path="/cars" element={<PersonalExposition />} />
+        <Route path="/cars/:carId" element={<PersonalExposition />} />
+        <Route path="/music" element={<PersonalExposition />} />
+        <Route path="/everything-else" element={<PersonalExposition />} />
       </Routes>
     </Router>
   );

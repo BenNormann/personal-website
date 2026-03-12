@@ -1149,11 +1149,16 @@ footer .copyright {
 .expo-content-wrapper {
   flex: 1;
   min-width: 0;
+  padding-right: 100px;
 }
 
 @media (max-width: 768px) {
   .expo-spine-zone {
     width: 60px;
+  }
+
+  .expo-content-wrapper {
+    padding-right: 60px;
   }
 }
 

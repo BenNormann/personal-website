@@ -52,7 +52,7 @@ const CarCard = ({ car }) => (
           src={car.heroImg}
           alt={car.name}
           className="img-fluid"
-          style={{ objectFit: "cover", height: "280px", width: "100%" }}
+          style={{ objectFit: "cover", height: "200px", width: "100%" }}
         />
       </div>
       <div className="work-content" style={{ flex: "1 0 auto" }}>
